@@ -46,6 +46,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // return parent::render($request, $exception);
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+            abort('404');
+        }
+
         return parent::render($request, $exception);
     }
 }

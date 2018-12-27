@@ -1,10 +1,11 @@
-@extends('layouts.themes.' . ENV('APP_THEMES','metronic') . '.app')
+{{-- @extends('layouts.themes.' . ENV('APP_THEMES','metronic') . '.app') --}}
+@extends('layouts.themes.metronic.app')
 
 
 @section("content")
 
 
-        <!-- BEGIN SERVICE BOX -->   
+        <!-- BEGIN SERVICE BOX -->
         <div class="row service-box margin-bottom-40">
           <div class="col-md-4 col-sm-4">
             <div class="service-box-heading">
@@ -31,8 +32,8 @@
         <!-- END SERVICE BOX -->
 
 
-        
-        <!-- BEGIN BLOCKQUOTE BLOCK -->   
+
+        <!-- BEGIN BLOCKQUOTE BLOCK -->
         <div class="row quote-v1 margin-bottom-30">
           <div class="col-md-9">
             <span>GET FREE EASTERNSTAR BIT COIN WALLET</span>
@@ -99,9 +100,9 @@
                   <img src="assets/pages/img/clients/client_8_gray.png" class="img-responsive" alt="">
                   <img src="assets/pages/img/clients/client_8.png" class="color-img img-responsive" alt="">
                 </a>
-              </div>                  
+              </div>
             </div>
-          </div>          
+          </div>
         </div>
         <!-- END CLIENTS -->
 @endsection

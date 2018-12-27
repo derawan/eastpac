@@ -4,11 +4,13 @@
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
 <!-- Fonts END -->
 
-<!-- Global styles START -->          
+<!-- Global styles START -->
 <link href="{{asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-<link href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-<!-- Global styles END --> 
- 
+{{-- <link href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+--}}
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<!-- Global styles END -->
+
 <!-- Page level plugin styles START -->
 <link href="assets/pages/css/animate.css" rel="stylesheet">
 <link href="assets/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">

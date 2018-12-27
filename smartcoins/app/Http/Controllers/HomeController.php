@@ -47,6 +47,7 @@ class HomeController extends Controller
         // $role2->givePermissionTo($permission2);
         //auth()->user()->givePermissionTo('Manage My Profile');
         //auth()->user()->assignRole('Administrator');
-        return view('home');
+        $title = "Dashboard";
+        return view('dashboard.index', compact('title'));
     }
 }

@@ -1,5 +1,1 @@
-<?
-return [
-    'log' => 'yes'
-
-];
+<?php
