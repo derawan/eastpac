@@ -31,10 +31,10 @@
 <div class="wrapper">
 <?php include('page-header.html');?>
   <!-- Left side column. contains the logo and sidebar -->
-<?php include('page-sidebar');?>
+<?php include('page-sidebar.html');?>
 
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper"  style="background-image: url(dist/img/bg-min.png);">
+<div class="content-wrapper">
 
     <!--Table Section-->
     <section class="content" style="padding-left: 30px;padding-right: 30px;">
@@ -146,7 +146,7 @@
 </div>
 </div>
 <!--Footer section-->
-<?php include('page-from.php');?>
+<?php include('page-footer.html');?>
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -182,7 +182,7 @@ $('#example').dataTable({
          "data": "txhash",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="txhash.html">' + data + '</a>';
+                data = '<a href="txhash.php">' + data + '</a>';
             }
             
             return data;
@@ -192,7 +192,7 @@ $('#example').dataTable({
          "data": "block",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="block.html">' + data + '</a>';
+                data = '<a href="block.php">' + data + '</a>';
             }
             
             return data;
@@ -206,7 +206,7 @@ $('#example').dataTable({
          "data": "from",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="from.html">' + data + '</a>';
+                data = '<a href="from.php">' + data + '</a>';
             }
             
             return data;
@@ -216,7 +216,7 @@ $('#example').dataTable({
          "data": "to",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="to.html">' + data + '</a>';
+                data = '<a href="to.php">' + data + '</a>';
             }
             
             return data;

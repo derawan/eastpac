@@ -118,7 +118,7 @@ $('#example').dataTable({
          "data": "txhash",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="txhash.html">' + data + '</a>';
+                data = '<a href="txhash.php">' + data + '</a>';
             }
             
             return data;
@@ -128,7 +128,7 @@ $('#example').dataTable({
          "data": "block",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="block.html">' + data + '</a>';
+                data = '<a href="block.php">' + data + '</a>';
             }
             
             return data;
@@ -142,7 +142,7 @@ $('#example').dataTable({
          "data": "from",
          "render": function(data, type, row, meta){
             if(type === 'display'){
-                data = '<a href="from.html">' + data + '</a>';
+                data = '<a href="from.php">' + data + '</a>';
             }
             
             return data;

@@ -23,6 +23,10 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <link rel="stylesheet" href="dist/css/contribution.css">
   <link rel="stylesheet" href="dist/css/skins/skin-black.css">
+  <!--sweetalert -->    
+<!--  <link rel="stylesheet" href="dist/css/skins/skin-black.css">-->
+ 
+  <link rel="stylesheet" href="dist/css/skins/skin-black.css">
 
 
   <!-- Google Font -->
@@ -240,7 +244,7 @@
                                     <img class="tranx-info-qrimg" src="dist/img/eth-qr.png" alt="qr">
                                     <div class="gaps-4x"></div><br>
 <!--                                    <ul class="btn-grp guttar-20px">-->
-                                        <button href="#" class="btn btn-primary">Yes, I want</button>
+                                        <button href="#" class="btn btn-primary" onclick="getPayments()">Yes, I want</button>
                                         <button href="#" class="btn btn-danger" data-dismiss="modal">No, Thanks</button>
 <!--                                    </ul>-->
                                 </div>
@@ -293,6 +297,7 @@
 <!-- <script src="dist/js/pages/dashboard2.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="dist/sweetalert/dist/sweetalert.min.js"></script>
 <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
@@ -305,7 +310,29 @@
 <script src="bower_components/Flot/jquery.flot.categories.js"></script>
 <script src="bower_components/chart.js/amcharts.js"></script>
 <script src="bower_components/chart.js/serial.js"></script>
-
+<script>
+    function getPayments(){
+//       swal({
+//          title: "We're reviewing your payment",
+//          text: "We’ll review your transaction and get back to your within 6 hours. You’ll receive an email with the details of your contribution.",
+//          icon: "success",
+//          button: "Purchase",
+//        },function() {
+//            window.location = "transaction.php";
+//        });
+        
+        
+        swal({ title: "We're reviewing your payment",
+               text: "We’ll review your transaction and get back to your within 6 hours. You’ll receive an email with the details of your contribution.",
+               icon: "success",  
+               button: "Purchase",
+               type: "success"}).then(okay => {
+               if (okay) {
+                window.location.href = "transaction.php";
+              }
+            });
+    }
+</script>
 
 </body>
 </html>
