@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EASTPAC | Block Info</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="jquery.dataTables.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!--DataTables-->
+  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-black.css">
+
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+    
+
+<body class="hold-transition skin-black fixed">
+<div class="wrapper">
+
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="dist/img/eastpaclogos.png" width="65%">
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+         <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="dist/img/coin.png" class="user-image" alt="User Image">
+                  <span class="hidden-xs">0.00 EAST</span>
+                </a>
+            </li>
+          </ul>
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/user.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">User</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/user.png" class="img-circle" alt="User Image">
+                <p>
+                  User
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          </ul>
+         
+        </div>
+      </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        
+      </div>
+      <ul class="sidebar-menu" data-widget="tree">
+          <li><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li><a href="transaction.html"><i class="fa fa-bitcoin"></i> <span>Transfer</span></a></li>
+          <li><a href="bounty_page.html"><i class="fa fa-star"></i> <span>Bounty</span></a></li>
+          <li><a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+      </ul>
+      
+          <!-- /.sidebar -->
+    </section>
+</aside>
+
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper"  style="background-image: url(dist/img/bg-min.png);">
+
+    <!--Table Section-->
+    <section class="content" style="padding-left: 30px;padding-right: 30px;">
+        <div class="col-md-12">
+          <!-- Custom Tabs -->
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Overview</a></li>
+              <li><a href="#tab_2" data-toggle="tab" aria-expanded="false">Comments</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_1">
+                <h3>Block Information</h3><br>
+                <div class="table-responsive"> 
+                    <table class="table table-striped">
+                        <tr>
+                            <td width="30%">Height :</td>
+                            <td>90898</td>
+                        </tr> 
+                        <tr>
+                            <td>Timestamp :</td>
+                            <td>1 min ago (Jan-02-2019 05:28:28 AM +UTC)</td>
+                        </tr>
+                        <tr>
+                            <td>Transactions :</td>
+                            <td>114 transactions and 39 contract Internal Transactions in this Block</td>
+                        </tr>
+                           <tr>
+                            <td>Hash :</td>
+                            <td>0x6c72675b91c10a601ac5ff99578172ab7f774234cf36663499ab5d5108fb6446</td>
+                        </tr>
+                           <tr>
+                            <td>Parent Hash :</td>
+                            <td>114 t0x25c56aada5af6ddb734a9aef33399ab4d79ecb16488446b46de2d08de3ba926b</td>
+                        </tr>
+                           <tr>
+                            <td>Sha3Uncles :</td>
+                            <td>0xe2865f2705a2a172abef97b16b013118faa4bb338d71c2c24098b78a6add6089</td>
+                        </tr>
+                           <tr>
+                            <td>Mined By :</td>
+                            <td>0x5a0b54d5dc17e0aadc383d2db43b0a0d3e029c4c (<b>SparkPool</b>) in 18 secs</td>
+                        </tr>
+                           <tr>
+                            <td>Difficulty :</td>
+                            <td>2,505,721,500,842,021</td>
+                        </tr>
+                           <tr>
+                            <td>Total Difficulty :</td>
+                            <td>8,492,201,888,620,109,431,423</td>
+                        </tr>
+                        <tr>
+                            <td>Size :</td>
+                            <td>19817 bytes</td>
+                        </tr>
+                        <tr>
+                            <td>Gas Used :</td>
+                            <td>7,996,652 (99.96%)</td>
+                        </tr>
+                        <tr>
+                            <td>Gas Limit :</td>
+                            <td>8,000,029</td>
+                        </tr>
+                        <tr>
+                            <td>Nonce :</td>
+                            <td>0xcd716800211b1d1d</td>
+                        </tr>
+                        <tr>
+                            <td>Block Reward :</td>
+                            <td>3.226846899404403086 Ether (3 + 0.133096899404403086 + 0.09375)</td>
+                        </tr>
+                        <tr>
+                            <td>Uncles Reward :</td>
+                            <td>2.625 Ether (1 Uncle at Position 0)</td>
+                        </tr>
+                        <tr>
+                            <td>Extra Data :</td>
+                            <td>sparkpool-eth-tw (Hex:0x737061726b706f6f6c2d6574682d7477)</td>
+                        </tr>
+                    </table>
+                  </div>
+              </div>
+              <div class="tab-pane" id="tab_2">
+                <p>Make sure to use the "Vote Down" button for any spammy posts, and the "Vote Up" for interesting conversations.</p><br>
+                <div class="row">
+                    <div class="col-sm-1">
+                        <img src="dist/img/user.png" width="70px" style="margin-left: 10%">
+                    </div>
+                    <div class="col-sm-11">
+                        <input class="form-control input-lg" id="allocation" name="allocation" type="text" placeholder="Start the discussion" style="height: 70px; border-radius: 5px; margin-right: 50%">
+                     </div>
+                     
+                 </div> 
+                  <br>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>
+</div>
+<!--Footer section-->
+ <footer class="main-footer" class="pull-right">
+    <img src="dist/img/eastpaclogo.png" width="8%" >
+    <strong>Copyright © 2018</strong> All rights
+    reserved.
+  </footer>
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- Sparkline -->
+<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+
+</body>
+</html>
