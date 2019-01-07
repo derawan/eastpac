@@ -12,5 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([create_rolesandpermission::class]);
+        $this->call(SiteConfigsTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
     }
 }

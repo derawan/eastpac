@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\SiteConfig;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,8 +26,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(User $userModel)
     {
+
         //Role::create(['name'=>'Administrator']);
         //Role::create(['name'=>'Member']);
         //Permission::create(['name'=>'Edit Personal Profiles']);
@@ -48,6 +52,33 @@ class HomeController extends Controller
         //auth()->user()->givePermissionTo('Manage My Profile');
         //auth()->user()->assignRole('Administrator');
         $title = "Dashboard";
-        return view('dashboard.index', compact('title'));
+
+        return view('layouts.sections.home', compact('title'));
+    }
+
+    public function contribution()
+    {
+
+        $title = "Dashboard";
+        return view('layouts.sections.contribution', compact('title'));
+    }
+
+    public function transaction()
+    {
+
+        $title = "Transaction";
+        return view('layouts.sections.transaction', compact('title'));
+    }
+
+    public function referral()
+    {
+        $title = "Referral";
+        return view('layouts.sections.referral', compact('title'));
+    }
+
+    public function kycapp()
+    {
+        $title = "KYC App";
+        return view('layouts.sections.kycapp', compact('title'));
     }
 }

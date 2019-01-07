@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Validator;
+use Browser;
 
 
 class ProfileController extends Controller
@@ -100,6 +101,33 @@ class ProfileController extends Controller
         return response()->json($result, $status);
     }
 
+    public function updateProfile(Request $request)
+    {
+        // dd($request->file('avatar'));
+        $validator = Validator::make($request->all(), [
+            'avatar' => 'required|image'
+        ]);
+
+        if($validator->fails()) {
+
+            return redirect()->back()->withErrors($validator);
+        } else {
+
+           /* User::where('username', $username)->update([
+                'name' => $request->fullname
+            ]);*/
+            if (isset($request->avatar)) {
+                // dd('kakaikuda');
+                Auth::user()->addMediaFromRequest("avatar")->toMediaCollection('avatars');
+            }
+            return redirect()->back();
+        }
+
+
+
+        return response()->json($result, $status);
+    }
+
     public function updatePassword(Request $request)
     {
         $username = Auth::user()->username;
@@ -109,6 +137,7 @@ class ProfileController extends Controller
             'password' => 'required|confirmed'
         ]);
 
+
         $check_old_password = Hash::check($request->password_old, Auth::user()->password);
         // dd($validator->errors());
         if($validator->fails()) {
@@ -116,12 +145,26 @@ class ProfileController extends Controller
             $status = 500;
         } else {
             if($check_old_password) {
+                activity('change_password')
+                ->causedBy(Auth::user())
+                ->performedOn(new User)
+                ->withProperties(
+                    [
+                        'device' => Browser::platformName(),
+                        'browser' => Browser::browserFamily(),
+                        'ip_addr' => request()->ip()
+
+                    ])
+                ->log('Change Password');
+
                 $result = ['msg' => 'Udpate Password Success', 'type' => 'success'];
                 $status = 200;
 
                 User::where('username', $username)->update([
                     'password' => bcrypt($request->password)
                 ]);
+
+
             } else {
                 $result = ['msg' => 'Wrong old password', 'type' => 'danger'];
                 $status = 500;
