@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserProfile;
+use App\UserWallet;
+use App\UserAccounts;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Validator;
@@ -25,7 +28,10 @@ class ProfileController extends Controller
     public function index()
     {
         $title = "Profile";
-        return view('profile.index', compact('title'));
+        $useraccount = UserAccounts::where('userid',Auth::user()->id)->first();
+        $userwallet = UserWallet::where ('userid',Auth::user()->id)->first();
+        $userprofile = UserProfile::where ('userid',Auth::user()->id)->first();
+        return view('profile.index', compact('title','useraccount','userwallet','userprofile'));
     }
 
     /**
@@ -183,5 +189,77 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function UpdatePersonalProfile(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $validator = Validator::make($request->all(), [
+            'address'     => 'required',
+            'bod'  => 'required',
+            'pob'       => 'required',
+            'personalid' => 'required',
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            $userprofile = new UserProfile([
+                'userid' =>$userid,
+                'address' => $request->get('address'),
+                'personalid'=> $request->get('personalid'),
+                'bod'=> $request->get('bod'),
+                'pob'=> $request->get('pob'),
+              ]);
+            $userprofile->save();
+            return redirect()->back();
+        }
+    }
+
+    public function UserWallet(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $validator = Validator::make($request->all(), [
+            'walletaddress'     => 'required',
+            'walletkey1'  => 'required',
+            'walletkey2'       => 'required',
+            'tipe' => 'required',
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            $userwallet = new UserWallet([
+                'userid' =>$userid,
+                'walletaddress' => $request->get('walletaddress'),
+                'walletkey1'=> $request->get('walletkey1'),
+                'walletkey2'=> $request->get('walletkey2'),
+                'tipe'=> $request->get('tipe'),
+              ]);
+            $userwallet->save();
+            return redirect()->back();
+        }
+    }
+
+    public function UserAccounts(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $validator = Validator::make($request->all(), [
+            'UserAccountID'     => 'required',
+            'UserKey1'  => 'required',
+            'UserKey2'  => 'required',
+            'tipe' => 'required',
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            $useraccounts = new UserAccounts([
+                'userid' =>$userid,
+                'UserAccountID' => $request->get('UserAccountID'),
+                'UserKey1'=> $request->get('UserKey1'),
+                'UserKey2'=> $request->get('UserKey2'),
+                'tipe'=> $request->get('tipe'),
+              ]);
+            $useraccounts->save();
+            return redirect()->back();
+        }
     }
 }
