@@ -75,42 +75,60 @@
 <div class="box box-warning">
     <div class="user-panel">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="tile-item tile-primary">
                     <div class="tile-bubbles"></div>
                     <h6 class="tile-title">EAST TOKEN BALANCE</h6>
                     <h1 class="tile-info">120,000,000 EAST</h1>
-                    <ul class="tile-list-inline">
-                        <li class="pull-right">19.043 ETH</li>
-                    </ul>
                 </div>
             </div><!-- .col -->
-            <div class="col-md-6">
-                <div class="tile-item tile-light">
+            <div class="col-md-4">
+                <div class="tile-item tile-primary">
                     <div class="tile-bubbles"></div>
                     <h6 class="tile-title">YOUR CONTRIBUTION</h6>
-                    <ul class="tile-info-list pull-right">
-                        <li><span>1.646</span>ETH</li>
-                    </ul>
+                    <h1 class="tile-info">1256 ETH</h1>
+                </div>
+            </div><!-- .col -->
+            <div class="col-md-4">
+                <div class="tile-item tile-primary">
+                    <div class="tile-bubbles"></div>
+                    <h1 class="tile-title">1 ETH = 1000 EAST</h1>
+                    <h6 class="tile-info">1 ETH = 156.89 USD</h6>
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
-        <div class="info-card info-card-bordered">
-            <div class="row align-items-center">
-                <div class="col-sm-3">
-                    <div class="info-card-image">
-                        <img src="dist/img/vector-a.png" alt="vector">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="info-card info-card-bordered">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3">
+                            <div class="info-card-image">
+                                <img src="dist/img/vector-a.png" alt="vector">
+                            </div>
+                        <div class="gaps-2x d-md-none"></div>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4>Thank you for your interest towards to our ICO Crypto Projects</h4>
+                            <p>You can contribute EAST tokens in <a href="contribution.php">Contributions</a> section.</p>
+                            <p>Don’t hesitate to invite your friends! If your invited referral purchased token then both of you get 10% bonus.</p>
+                        </div>
                     </div>
-                <div class="gaps-2x d-md-none"></div>
-                </div>
-                <div class="col-sm-9">
-                    <h4>Thank you for your interest towards to our ICO Crypto Projects</h4>
-                    <p>You can contribute ICOX tokens in <a href="#">Contributions</a> section.</p>
-                    <p>You can get a quick response to any questions, and chat with the project in our Telegram: <a href="htts://t.me/icocrypto">htts://t.me/icocrypto</a></p>
-                    <p>Don’t hesitate to invite your friends! If your invited referral purchased token then both of you get 10% bonus.</p>
-                </div>
+                </div><!-- .info-card -->
             </div>
-        </div><!-- .info-card -->
+            <div class="col-md-4">
+                <div class="box box-solid box-warning">
+                    <div class="box-header with-border">
+                      <div class="box-title"><h3>Calculation</h3></div>
+                    </div>
+                    <div class="box-body">
+                        <h6>Enter Amount to Calculate Token</h6>
+                        
+                               
+                    </div>
+                </div>     
+            </div>
+        </div>
+
         <div class="token-card">
             <div class="token-info">
                 <span class="token-smartag">ICO Phase 2</span>

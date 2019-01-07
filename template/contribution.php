@@ -60,6 +60,43 @@
 .note-danger {
     background: rgba(255, 0, 0, 0.05);
 }
+
+#clockdiv{
+  font-family: sans-serif;
+  color: #fff;
+  display: contents;
+  font-weight: 100;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+#clockdiv > div{
+  padding: 5px;
+  border-radius: 5px;
+  background: #701296;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#clockdiv div > span{
+    padding: 5px;
+    border-radius: 5px;
+    background: #b060d0;
+    display: inline-block;
+}
+.smalltext{
+  padding-top: 5px;
+  font-size: 10px;
+}
+.token-countdown{
+  background: #f39c12;
+  padding: 10px;
+}
+.token-countdown-title{
+  color: #fff;
+  margin-bottom: 10px;
+}
 </style>
 
 <body class="hold-transition skin-black fixed">
@@ -72,21 +109,25 @@
   <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <section class="content">
-      <div class="row">
-        <div class="col-sm-12" style="margin-top: 10px">
             <div class="box box-warning">
-                <div class="box-header with-border">
+                <!-- <div class="box-header with-border">
                   <h2 class="box-title">Buy Tokens</h2>
-                    <div class="box-body">
+                 </div> -->
+                   <div class="row" style="margin:20px 20px 20px 20px">
+                    <div class="col-md-8">
+                    <!-- <div class="box box-solid box-warning"> -->
                       <div class="status status-empty">
-                       <div class="row">
                             <div class="user-panel" style="text-align:left;">
                             <form action="#">
-                                <div class="step-head" style="display: flex; align-items: center"><div class="step-number">01</div><div class="step-head-text"><h4 class="pull-left">Select the payment method and calculate token price</h4></div>
-                                </div>
-                               <hr>
-                                <div class="gaps-1x"></div>
-                                <div class="payment-list">
+                                <div class="row" style="display: none">
+                                  <div class="step-head" style="display: flex; align-items: center">
+                                    <div class="step-number">01</div>
+                                    <div class="step-head-text">
+                                      <h4 class="pull-left">Select the payment method and calculate token price</h4>
+                                    </div>
+                                 </div> <hr>
+                                 <div class="gaps-1x"></div>
+                                    <div class="payment-list">
                                     <div class="row">
                                        <div class="col-md-3 col-sm-6">
                                             <div class="payment-item">
@@ -131,43 +172,48 @@
                                     </div><!-- .row -->
                                 </div><!-- .payment-list -->
                                 <hr>
-                                <div class="gaps-1x"></div>
-                                <div class="step-head" style="display: flex; align-items: center"><div class="step-number">02</div><div class="step-head-text"><h4 class="pull-left">Set amount of EAST tokens you would like to purchase</h4></div>
                                 </div>
-                                <hr>
-                              
-                                <p>To become a part of the ICO Crypto project and purchase of EAST token will only be possible after payment made and receving an approval.  As you like to participate our project, please select payment method and enter the amount of EAST tokens you wish to purchase. You can buy EAST tokens using ETH. </p>
-                                <div class="gaps-1x"></div><br>
                                 <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="payment-calculator">
-                                            <div class="form-group">
-                                                <label for="paymentGet">Tokens to Purchase</label>
-                                                <div class="payment-input">
-                                                    <input class="form-control" type="text" id="paymentGet" value="1200">
-                                                    <span class="payment-get-cur payment-cal-cur">EAST</span>    
-                                                </div>
-                                            </div>
-                                            <em class="ti ti-exchange-vertical"></em>
-                                            <div class="form-group">
-                                                <label for="paymentFrom">Payment Amount</label>
-                                                <div class="payment-input">
-                                                    <input class="form-control" type="text" id="paymentFrom" value="600">
-                                                    <span class="payment-from-cur payment-cal-cur">USD</span>    
-                                                </div>
-                                            </div>
+                                  <div class="col-md-12">
+                                      <div class="step-head" style="display: flex; align-items: center">
+                                        <div class="step-number">01</div>
+                                        <div class="step-head-text">
+                                          <h4 class="pull-left">Amount of Contribution</h4>
                                         </div>
-                                        <div class="gaps-2x d-md-none"></div>
-                                    </div><!-- .col -->
-                                    <div class="col-md-4">
-                                        <div class="payment-bonus">
-                                            <h6 class="payment-bonus-title">Current Bonus</h6>
-                                            <span class="payment-bonus-amount">20% <span>on pre-sales</span></span>
-                                            <span class="payment-bonus-time">End at - 09 Jan, 2019</span>
+                                      </div>
+                                      <hr>
+                                      <p>Enter your amount, you would like to contribute and calculate the amount of token you will received. The calculator helps to convert required currency to tokens.</p>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-4">
+                                      <label>Token To Purchase</label>
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" style="border:1px solid #f39c12" >
+                                        <div class="input-group-btn">
+                                          <button class="btn btn-warning" type="submit">
+                                            EAST
+                                          </button>
                                         </div>
-                                        <div class="gaps-1x d-md-none"></div>
-                                    </div><!-- .col -->
-                                </div><!-- .row -->
+                                      </div>
+                                  </div>
+                                  <div class="col-md-1" style=" text-align: center; margin-top:40px"><i class="fa fa-exchange"></i></div>
+                                   <div class="col-md-4">
+                                    <label>Payment Amount</label>
+                                    <div class="input-group input-group-lg">
+                                      <input type="text" class="form-control" style="border:1px solid #f39c12">
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-warning btn-flat">ETH</button>
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-3">
+                                    <p style="margin-top: 15%">Current bonus</p>
+                                    <p style="margin-top:-10%"><b>20%</b><small> on pre-sales</small></p>
+                                    <p style="margin-top:-10%"><small>End at- 09 Aug 2019</small></p>
+                                  </div>
+                                </div><hr>
+                         
                                 <div class="gaps-1x"></div>
                                 <div class="payment-calculator-note"><i class="fa fa-info-circle" style="color:#f39c12"></i>The calculator helps you to convert required currency to EAST tokens.</div>
                                 <div class="gaps-3x"></div>
@@ -177,7 +223,7 @@
                                             <div class="payment-summary-item payment-summary-final">
                                                 <h6 class="payment-summary-title">Final Payment</h6>
                                                 <div class="payment-summary-info">
-                                                    <span class="payment-summary-amount">600.00</span> <span>usd</span>
+                                                    <span class="payment-summary-amount">600.00</span> <span>eth</span>
                                                 </div>
                                             </div>
                                         </div><!-- .col -->
@@ -193,30 +239,99 @@
                                             <div class="payment-summary-item payment-summary-tokens">
                                                 <h6 class="payment-summary-title">Tokens Received</h6>
                                                 <div class="payment-summary-info">
-                                                    <span class="payment-summary-amount">12,200</span> <span>icox</span>
+                                                    <span class="payment-summary-amount">12,200</span> <span>east</span>
                                                 </div>
                                             </div>
                                         </div><!-- .col -->
                                     </div><!-- .row -->
                                 </div><!-- .payment-summary -->
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#tranxETH">
-                                   Purchase Token
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="step-head" style="display: flex; align-items: center">
+                                        <div class="step-number">02</div>
+                                        <div class="step-head-text">
+                                          <h4 class="pull-left">Make a payment</h4>
+                                        </div>
+                                      </div>
+                                      <hr>
+                                      <p>To get tokens please make a payment. You can send payment directly to our address or you may pay online. Once you paid, you will receive an email about the successfull deposit.</p>
+                                  </div>
+
+                                </div>
+
+                                <button type="button" class="btn btn-lg btn-warning pull-right" data-toggle="modal" data-target="#tranxETH">
+                                   Get Address for Pay
                                 </button>
-                                
-                                
-                                
                             </form><!-- form -->
                         </div>
                        </div>
+                       <!-- </div> -->
                 
                 </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                       <button class="btn btn-lg btn-warning" style="width:100%" data-toggle="modal" data-target="#walletModal"><span class="pull-left">Add your wallet address before buy</span> <i class="fa fa-long-arrow-right pull-right"></i></button>
+                    </div>
+                  </div><br>
+                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="tile-item tile-primary">
+                          <div class="tile-bubbles"></div>
+                          <h6 class="tile-title">YOUR CONTRIBUTION</h6>
+                          <h1 class="tile-info">1646 ETH</h1>
+                      </div>
+                      </div>
+                  </div><br>
+                  <div class="row">
+                       <div class="col-md-12">
+                          <div class="box box-solid box-warning">
+                            <div class="box-header with-border">
+                              <div class="box-title"><h3>Presale Token Sale</h3></div>
+                            </div>
+                            <div class="box-body">
+        <!--
+                                <h6>D-SHARE PRICE</h6>
+                                <h4>1 D-SHARE = 10 EAST</h4>
+                                <hr>
+        -->
+                                <h6>EXCHANGE RATE</h6>
+                                <h3>1 ETH = <b style="color:#f39c12">10 EAST</b></h3>
+                                <hr>
+                                <!-- countdown-->
+                        <div class="token-countdown">
+                          <span class="token-countdown-title">SALE END IN</span>
+                              <div id="clockdiv"><div>
+                              <span class="days"></span>
+                              <div class="smalltext">Days</div>
+                        </div>
+                             <div>
+                                <span class="hours"></span>
+                                <div class="smalltext">Hours</div>
+                             </div>
+                             <div>
+                                <span class="minutes"></span>
+                                <div class="smalltext">Minutes</div>
+                             </div>
+                             <div>
+                              <span class="seconds"></span>
+                              <div class="smalltext">Seconds</div>
+                             </div>
+                         </div>
+                      </div>
+                                       
+                            </div>
+                          </div>
+                       </div>
+                  </div>
                 </div>
-              </div>
+                  
+            </div>
+            <br>
                 
            
           </div>
-        </div>
-      </div>
+     
       
 </section>
 <div class="modal fade" id="tranxETH" style="display: none;">
@@ -241,7 +356,7 @@
                             <div class="col-sm-5">
                                 <div class="tranx-info-qr">
                                     <span>OR Scan bellow QR Code to pay</span>
-                                    <img class="tranx-info-qrimg" src="dist/img/eth-qr.png" alt="qr">
+                                    <img class="tranx-info-qrimg" src="dist/img/eth-qr.png" alt="qr" style="margin: auto;">
                                     <div class="gaps-4x"></div><br>
 <!--                                    <ul class="btn-grp guttar-20px">-->
                                         <button href="#" class="btn btn-primary" onclick="getPayments()">Yes, I want</button>
@@ -267,6 +382,48 @@
             <!-- /.modal-content -->
           </div>
           <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="walletModal" style="display: none;">
+  <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><h3>Wallet Address</h3></div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+                <p>In order to receive your EAST Tokens, please select your wallet address and you have to put the address below input box. You will receive EAST tokens to this address after the Token Sale end.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                    <label for="username">Select Wallet</label>       
+                    <div class="input-group input-group" style="width: 100%">
+                      <select class="form-control" style="border:1px solid #f39c12">
+                        <option>Ethereum</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+              <div class="form-group">
+                    <label for="username">Your Token Address</label>       
+                    <div class="input-group input-group" style="width: 100%">
+                      <input type="text" class="form-control" id="password_now" placeholder="" style="border:1px solid #f39c12;" value="0x09456d75377f56692d9c57d679e2d5108ad96110">
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-lg btn-warning pull-right">Add Wallet</button>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+  </div>
 </div>
 </div>
 
@@ -311,27 +468,47 @@
 <script src="bower_components/chart.js/amcharts.js"></script>
 <script src="bower_components/chart.js/serial.js"></script>
 <script>
-    function getPayments(){
-//       swal({
-//          title: "We're reviewing your payment",
-//          text: "We’ll review your transaction and get back to your within 6 hours. You’ll receive an email with the details of your contribution.",
-//          icon: "success",
-//          button: "Purchase",
-//        },function() {
-//            window.location = "transaction.php";
-//        });
-        
-        
-        swal({ title: "We're reviewing your payment",
-               text: "We’ll review your transaction and get back to your within 6 hours. You’ll receive an email with the details of your contribution.",
-               icon: "success",  
-               button: "Purchase",
-               type: "success"}).then(okay => {
-               if (okay) {
-                window.location.href = "transaction.php";
-              }
-            });
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
     }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+initializeClock('clockdiv', deadline);
 </script>
 
 </body>
