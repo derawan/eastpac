@@ -33,27 +33,30 @@
 #clockdiv{
   font-family: sans-serif;
   color: #fff;
-  display:;
+  display: contents;
   font-weight: 100;
   text-align: center;
   font-size: 20px;
 
 }
 
-#clockdiv > div{
-  padding: 5px;
+#clockdiv td > div{
+  padding: 3px;
   border-radius: 5px;
   background: #701296;
-  display: inline-block;
-  margin-left: auto;
-
+  display:table-cell;
+  margin-left: 0px;
 }
-
-#clockdiv div > span{
-    padding: 5px;
+	#clockdiv table{
+		margin: auto;
+	}
+	#clockdiv table td{
+		padding: 0px;
+	}
+#clockdiv td div > span{
+    padding: 5px 3px;
     border-radius: 5px;
     background: #b060d0;
-    display: inline-block;
 }
 .smalltext{
   padding-top: 5px;
@@ -61,11 +64,20 @@
 }
 .token-countdown{
   background: #f39c12;
-  padding: 10px;
+  padding: 0px;
 }
 .token-countdown-title{
   color: #fff;
   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+.div-btn-process{
+		margin-top:20px;
+}
+.div-btn-process .pull-right{
+	float:none !important;
+}
 }
 
 </style>
@@ -80,14 +92,17 @@
   <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 <section class="content" style="min-height: 25px;">  
+    <!-- Start box box-warning -->
     <div class="box box-warning">
         <div class="box-header">
             <h3 class="box-title">D - Share</h3>
         </div>
+        <!-- Start User-panel -->
         <div class="user-panel">
             <div class="row">
                 <div class="col-md-9" border="1">
                     <div class="box box-solid box-warning">
+                    <!-- Start Box-Body -->
                       <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -131,12 +146,15 @@
                                 </span>
                               </div>
                             </div>
-                            <div class="col-md-2"><button class="btn btn-lg btn-warning pull-right" onclick="processExchange()">Process</button></div>
+                            <div class="col-md-2 div-btn-process"><button class="btn btn-lg btn-warning pull-right" onclick="processExchange()">Process</button></div>
                           </div><hr>
+
                           <div class="row">
                                 <div class="col-md-12">
                                     <h4>Transaction</h4>
-                                    <table id="example" class="display" style="width:100%">
+                                    <!-- Start Data Table -->
+                                    <div class="table-responsive">
+                                    <table id="example" class="display dt-responsive" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>TxHash</th>
@@ -148,17 +166,25 @@
                                             </tr>
                                         </thead>
                                       </table>
+                                    </div>
                                 </div>   
                            </div>
-                        </div> 
+                           <!-- End Box-body -->
+                        </div>
+                         <!-- End box box-solid box-warning  -->
                     </div>
+                    <!-- End col -->
                 </div>
+                <!-- End row -->
+
                 <!--company news-->
                 <div class="col-md-3" border="1px">
                   <div class="box box-solid box-warning">
                     <div class="box-header with-border">
                       <div class="box-title"><h3>D-Share Sale</h3></div>
                     </div>
+
+                    <!-- Start Box-body -->
                     <div class="box-body">
 <!--
                         <h6>D-SHARE PRICE</h6>
@@ -172,45 +198,87 @@
                         
                                
                     </div>
+                    <!-- End Box-body -->
                   </div>
-              <div class="token-countdown">
-                  <span class="token-countdown-title">SALE END IN</span>
-                    <div id="clockdiv"><div>
-                     <span class="days"></span>
-                        <div class="smalltext">Days</div>
-                     </div>
-                     <div>
-                        <span class="hours"></span>
-                        <div class="smalltext">Hours</div>
-                     </div>
-                     <div>
-                        <span class="minutes"></span>
-                        <div class="smalltext">Minutes</div>
-                     </div>
-                     <div>
-                      <span class="seconds"></span>
-                      <div class="smalltext">Seconds</div>
-                     </div>
-                 </div>
-              </div>
+                  <!-- End Box Box-solid box-warning -->
 
-                  <br>
-                  <div class="box box-solid box-warning">
-                    <div class="box-header with-border">
-                      <div class="box-title"><h3>Latest News</h3></div>
-                    </div>
-                    <div class="box-body" style="text-align:justify">
-                        <p>The global economy looks poised to slow moderately from 3.8% in 2018 to 3.5% next year in Goldman Sachs Research’s view, led by deceleration in the US and further softening in China <a href="#">Read more...</a> 
-                        </p>
-                    </div>
-                  </div>
-               </div>
-            </div>
+                        <!-- Start token-countdown -->
+                        <div class="token-countdown" style="padding-bottom: 10px; margin-top: 10px;">
+                          <span class="token-countdown-title">SALE END IN</span>
+                              <!-- Start clockdiv -->
+                              <div id="clockdiv">
+                                <!-- Start Table -->
+                                <table>
+                              	  <tr>
+                              		  <td>
+                                    <!-- Days -->
+  		                                  <div>
+                                            <span class="days"></span>
+                                            <div class="smalltext">Days</div>
+               		                      </div>
+                              		  </td>
+
+                              		  <td>
+                                    <!-- Hours -->
+                                      <div>
+                                          <span class="hours"></span>
+                                          <div class="smalltext">Hours</div>
+                                      </div>
+                              			</td>
+                              		
+                                    <td>
+                                    <!-- Minutes -->
+                                      <div>
+                                        <span class="minutes"></span>
+                                        <div class="smalltext">Minutes</div>
+                                      </div>    
+                                    </td>
+                                    
+                                    <td>
+                                    <!-- Seconds -->
+                                      <div>
+                                        <span class="seconds"></span>
+                                        <div class="smalltext">Seconds</div>
+                                      </div>
+                                    </td>
+
+                                  </tr>
+                                </table>
+                                <!-- End Table -->
+                              </div>
+                              <!-- End clockdiv -->
+                      </div>
+                      <!-- End token-countdown -->
+        
+                      <br>
+                        <!-- Start box box-solid box-warning  -->
+                      <div class="box box-solid box-warning">
+                          <!-- Start boz-header -->
+                          <div class="box-header with-border">
+                            <div class="box-title"><h3>Latest News</h3></div>
+                          </div>
+                          <!-- End Box-header -->
+
+                            <!-- Start box-body -->
+                            <div class="box-body" style="text-align:justify">
+                                <p>The global economy looks poised to slow moderately from 3.8% in 2018 to 3.5% next year in Goldman Sachs Research’s view, led by deceleration in the US and further softening in China <a href="#">Read more...</a> 
+                                </p>
+                            </div>
+                            <!-- End Box-body -->
+                      </div>
+                      <!-- End box box-solid box-warning -->
+
         </div>
+        <!-- End User-panel -->
     </div>
+    <!-- End Box-warning -->
 </section>
+<!-- End Section -->
 </div>
+<!-- End content-wrapper -->
 </div>
+<!-- End Wrapper -->
+
 <!--Footer section-->
 <?php include('page-footer.html'); ?>
 

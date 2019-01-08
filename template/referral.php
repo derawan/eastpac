@@ -29,109 +29,109 @@
     
 
 
-
+<!-- Start body hold-transition skin-black fixed -->
 <body class="hold-transition skin-black fixed">
+<!-- Start wrapper -->
 <div class="wrapper">
 
 <?php include('page-header.html') ?>
   <!-- Left side column. contains the logo and sidebar -->
 
 <?php include('page-sidebar.html') ?>
-  <!-- Content Wrapper. Contains page content -->
+  <!-- Start Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
+        <!-- Start section -->
         <section class="content" style="padding-left: 30px;padding-right: 30px;">
+        <!-- start card -->
         <div class="card">
             <div class="row">
-                <div class="box box-warning">
-                    <div class="box-header">
-                      <h3 class="box-title">Referral</h3>
+                <div class="col-md-6">
+                    <!-- Start box box-warning -->
+                    <div class="box box-warning">
+                          <div class="box-header">
+                            <h3 class="box-title">Referral</h3>
+                          </div>
+                          <!-- Start box-body -->
+                          <div class="box-body">
+                                <h4>Invite your friends and family and recive free tokens</h4><br>
+                                <p>The referral link may be used during a token contribution, in the pre-sale and the ICO.</p>
+                                <p align="justify">Imagine giving your unique referral link to your crypto-friend and he or she contributes tokens using your link, the bonus will be sent to your account automatically. The strategy is simple: the more links you send to your collagues, family and friends - the more tokens you may earn!</p>
+                                <hr>
+                                <h6>My unique referral link</h6>
+                                <!-- Start refferal-info -->
+                                <div class="refferal-info">
+                                    <div class="input-group input-group-sm">
+                                      <input type="text" class="form-control" style="border:1px solid #f39c12" value="https://demo.eastpac.io/ico?ref=7d264f90653733592">
+                                      <span class="input-group-btn">
+                                        <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-copy"></i></button>
+                                      </span>
+                                    </div>
+                                </div><!-- .refferal-info --> 
+                              
+                                <h6>Share with</h6>
+                                <!-- Start referal-info -->
+                                <div class="refferal-info">
+                                    <div class="input-group input-group-sm col-md-12">
+                                        <select class="form-control" style="border:1px solid #f39c12;  max-width: 100%;" >
+                                            <option>Facebook</option>
+                                            <option>Web/Blog</option>
+                                            <option>Translate Whitepaper</option>
+                                        </select>
+                                    </div>
+                                </div><!-- End .share with --> 
+                                
+                                <h6>Share link</h6>
+                                 <div class="refferal-info">
+                                    <div class="input-group input-group-sm col-md-12">
+                                      <input type="text" class="form-control" style="border:1px solid #f39c12">
+                                    </div>
+                                </div><!-- .share link --> 
+                                <br>
+                                <button class="btn btn-sm btn-warning">Submit</button>
+                          </div>
+                          <!-- End box-body -->
                     </div>
+                      <!-- End box box-warning -->
+                </div>
+                <!-- End Col -->
 
-                  <div class="box-body">
-                    <div class="user-panel">
-                       
-                        <h4>Invite your friends and family and recive free tokens</h4><br>
-                        <p><strong>Each member recives a unique referral link to share with friends and family and recive a bonus - 5% of the value of their contribution.</strong></p>
-                        <p>The referral link may be used during a token contribution, in the pre-sale and the ICO.</p>
-                        <p>Imagine giving your unique referral link to your crypto-friend and he or she contributes tokens using your link, the bonus will be sent to your account automatically. The strategy is simple: the more links you send to your collagues, family and friends - the more tokens you may earn!</p><br>
-                        <h6>My unique referral link</h6>
-                        <div class="refferal-info">
-                            <span class="refferal-copy-feedback copy-feedback"></span>
-                            <i class="fa fa-link"></i>
-                            <input type="text" class="refferal-address" value="https://demo.themenio.com/ico?ref=7d264f90653733592" disabled="">
-                            <button class="refferal-copy copy-clipboard" data-clipboard-text="https://demo.themenio.com/ico?ref=7d264f90653733592"><i class="fa fa-copy"></i></button>
-                        </div><!-- .refferal-info --> <!-- @updated on v1.0.1 -->
-                        <div class="gaps-2x"></div>
-                        <ul class="share-links">
-                            <li>Share with : </li>
-                            <li><a href="#"><i class="fa fa-at"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
-<!--                            <li><a href="#"><i class="fa fa-viber"></i></a></li>-->
-                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
-                        </ul><!-- .share-links -->
-                        <div class="gaps-1x"></div>
-                        <h4>Refferal Statistics</h4>
-                        <div class="refferal-statistics">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="refferal-statistics-item">
-                                        <h6>Visit Count</h6>
-                                        <span>420</span>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-md-4">
-                                    <div class="refferal-statistics-item">
-                                        <h6>Signin Count</h6>
-                                        <span>31</span>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-md-4">
-                                    <div class="refferal-statistics-item">
-                                        <h6>Total Bonus</h6>
-                                        <span>155</span>
-                                    </div>
-                                </div><!-- .col -->
-                            </div><!-- .row -->
-                        </div><!-- .refferal-statistics -->        
+                <div class="col-md-6">
+                     <!--Table Section-->
+                     <!-- Start box box-warning -->
+                    <div class="box box-warning">
+                          <div class="box-header">
+                            <h3 class="box-title">Referral List</h3>
+                          </div> 
+                          <!-- End box box-warning header -->
+                            <!-- Start box-body -->
+                            <div class="box-body">
+                                <table id="example" class="display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Link</th>
+                                            <th>Channel</th>
+                                            <th>Status</th>                                                                  
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <!-- End box-body -->
                     </div>
-                  </div>
-              </div>
+                    <!-- End box box-warning -->
+                </div>
+                <!-- End col -->
             </div>
+            <!-- End row card -->
         </div>
-    </section>
-    <!--Table Section-->
-    <section class="content" style="padding-left: 30px;padding-right: 30px;">
-        <div class="card">
-            <div class="row">
-                <div class="box">
-                    <div class="box-header">
-                      <h3 class="box-title">Referral List</h3>
-                    </div>
+        <!-- End card -->
+        </section>
+        <!-- End section -->
+</div>
+<!-- content-wrapper -->
+</div>
+<!-- End wrapper -->
 
-                  <div class="box-body">
-                      <table id="example" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Referee</th>
-                                <th>Bought Token</th>
-                                <th>Bonus</th>
-                                <th>Date</th>
-                                <th>Channel</th>
-                            </tr>
-                        </thead>
-                      </table>
-                  </div>
-              </div>
-            </div>
-        </div>
-    </section>
-</div>
-</div>
 <!--Footer section-->
 <?php include('page-footer.html'); ?>
 
@@ -165,31 +165,27 @@
 
 $(document).ready(function() {
   var responseObj = [
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-    { "referee": "Cynthia Foster", "btoken": "800",  "bonus":"8", "date":"25-12-2018", "channel":"Facebook"},
-   
-   
+    { "link": "https://demo.eastpac.io/ico?ref=7d264f90653733592", "channel":"Facebook", "status":"Pending"},
+    { "link": "https://demo.eastpac.io/ico?ref=7d264f90653733592", "channel":"Facebook", "status":"Pending"},
+    { "link": "https://demo.eastpac.io/ico?ref=7d264f90653733592", "channel":"Facebook", "status":"Approved"},
+    { "link": "https://demo.eastpac.io/ico?ref=7d264f90653733592", "channel":"Facebook", "status":"Approved"},
+    { "link": "https://demo.eastpac.io/ico?ref=7d264f90653733592", "channel":"Facebook", "status":"Approved"}
 ];
 $('#example').dataTable({
    "data": responseObj,
    "columns": [
      
-      { "data": "referee"},
-      { "data": "btoken"},
-      { "data": "bonus"},
-      { "data": "date"},
+      { "data": "link"},
       { "data": "channel"},
+      { "data": "status"}
+     
    ]
 });
 
 
 
 
-  });
+});
 
 </script>
 <script src="bower_components/Flot/jquery.flot.js"></script>

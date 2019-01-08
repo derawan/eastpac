@@ -118,7 +118,6 @@ input:checked + .slider:before {
             <div class="box-header with-border">
                 <h2 class="box-title">Security Settings</h2>
             </div>
-            <!-- End box-header with-border -->
             <div class="box-body">
             <div class="col-md-12">
           <!-- Custom Tabs -->
@@ -138,15 +137,11 @@ input:checked + .slider:before {
                                   <input type="checkbox"><span class="slider round"></span>                
                                 </label>
                             </div>
-                            <!-- End form-group slinder round -->
                          </div>
-                         <!-- End col-md-1 -->
                          <div class="col-md-6" style="margin-left:-1%">
                             Save my Activities Log
                          </div>
-                         <!-- End col -->
                       </div>
-                      <!-- End row -->
                       <div class="row">
                          <div class="col-md-1">
                             <div class="form-group">
@@ -154,15 +149,11 @@ input:checked + .slider:before {
                                   <input type="checkbox"><span class="slider round"></span>                
                                 </label>
                             </div>
-                            <!-- End form-group -->
                          </div>
-                         <!-- End col -->
                          <div class="col-md-6" style="margin-left:-1%">
                             Confirm me through email before password change
                          </div>
-                         <!-- End col -->
                       </div>
-                      <!-- End row -->
                       <div class="row">
                          <div class="col-md-1">
                             <div class="form-group">
@@ -170,33 +161,24 @@ input:checked + .slider:before {
                                   <input type="checkbox"><span class="slider round"></span>                
                                 </label>
                             </div>
-                            <!-- end form -->
                          </div>
-                         <!-- End col -->
                          <div class="col-md-6" style="margin-left:-1%">
                             Ask me password before token withdraw
                          </div>
-                         <!-- End col -->
                       </div>
-                      <!-- End row -->
+                      
 
                     </div>
-                    <!-- End status status-empty -->
                     <hr>
                     <div class="row">
                        <div class="col-md-12"><h3>Two-Factor Security Option</h3><br>
-                           <p>Two-factor authentication is a method for protection your web account. When it is activated you need to enter not only your password, but also a special code. You can receive this code by in mobile app. Even if third person will find your password, then can't access with that code.</p>
-                        </div>
-                    </div>
-                    <!-- End row -->
-                    <br>
+                           <p>Two-factor authentication is a method for protection your web account. When it is activated you need to enter not only your password, but also a special code. You can receive this code by in mobile app. Even if third person will find your password, then can't access with that code.</p></div>
+                    </div><br>
                     <div class="row">
                         <div class="col-md-12">
                         Current Status: <button class="btn btn-default btn-sm">Disabled</button>
                         </div>
-                    </div>
-                    <!-- End row -->
-                     <br> 
+                    </div> <br> 
                       <div class="row">
                          <div class="col-md-1">
                             <div class="form-group">
@@ -205,13 +187,10 @@ input:checked + .slider:before {
                                 </label>
                             </div>
                          </div>
-                         <!-- End col -->
                          <div class="col-md-6" style="margin-left:-1%">
                             Enable and use an authenticator App
                          </div>
-                         <!-- End col -->
                       </div>
-                      <!-- End row -->
                       <div id="securityDiv" style="display:none;">
                           <div class="row">
                               <div class="col-md-12">
@@ -221,20 +200,14 @@ input:checked + .slider:before {
                                 <p>- Authy (Android/iOS)</p>
                                 <p>- Microsoft Authenticator (Windows Phone)</p>
                               </div>
-                              <!-- End col -->
 
-                          </div>
-                          <!-- End row -->
-                          <br>
+                          </div><br>
                           <div class="row">
                               <div class="col-md-12">
                                  <p><b>2) Use the authenticator app to scan the barcode below.</b></p>
                                  <img src="dist/img/eth-qr.png" width="10%" style="margin-left:1.5%">
                               </div>
-                              <!-- End col -->
-                          </div>
-                          <!-- End row -->
-                          <br>
+                          </div><br>
                           <div class="row">
                               <div class="col-md-12">
                                   <p><b>3) Enter the code generated by the authenticator app.</b></p>
@@ -243,35 +216,24 @@ input:checked + .slider:before {
                                         <input type="text" class="form-control input-md" id="code-generator" placeholder="">
                                     </div>
                                   </div>
-                                  <!-- End col-md-12 -->
                               </div>
-                              <!-- End col -->
-                          </div>
-                          <!-- end row -->
-                          <br>
+                          </div><br>
                           <div class="row">
                               <div class="col-md-12">
                                 <button class="btn btn-md btn-primary" style="margin-left:1.5%">VERIFY</button>
                               </div>
-                              <!-- End col -->
                           </div>
-                          <!-- End row -->
                           <br><br>
                           <div class="row">
                             <div class="col-md-1" style="color:red">
                                 <i class="fa fa-info-circle" ></i>
                             </div>
-                            <!-- End col-md-1 -->
                              <div class="col-md-11" style="color:red; margin-left:-5%">
                               <p>Important! In case of loss of access to the mobile application, you can regain it using mobile number that specified in your profile. If you don't save that, we will not able to help you to regain.</p>
                             </div>
-                            <!-- End col-md-11 -->
                           </div>
-                          <!-- End row -->
                       </div>
-                      <!-- End securityDiv -->
-                  </div>
-                  <!--end tab content security-->
+                  </div><!--end tab content security-->
                  <!--start tab content activity log-->
                   <div class="tab-pane" id="tab_2">
                     <div class="col-md-12"></div>
@@ -290,29 +252,16 @@ input:checked + .slider:before {
                             </thead>
                           </table>
                         </div>
-                        <!-- End col -->
                   </div>
-                  <!-- End row -->
-                </div>
-                <!--end tab content activity log-->
+                </div><!--end tab content activity log-->
               </div>
-              <!-- end tab-content -->
           </div>
-          <!-- End nav-tabs-custom -->
         </div>
-        <!-- End col -->
         </div>
-        <!-- End box-body -->
       </div>
-      <!-- End box-warning -->
     </section>
-    <!-- End section -->
 </div>
-<!-- End content-wrapper -->
 </div>
-<!-- End wrapper -->
-
-
 <!--Footer section-->
  <footer class="main-footer" class="pull-right">
     <img src="dist/img/eastpaclogo.png" width="8%" >

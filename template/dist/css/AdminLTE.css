@@ -380,8 +380,13 @@ a:focus {
 @media (max-width: 767px) {
   .main-header {
     position: relative;
+	  background-color: #ffffff;
   }
-  .main-header .logo,
+  .main-header .logo{
+	float: none;
+	  margin: auto;
+	  background-color: #ffffff !important;
+  }
   .main-header .navbar {
     width: 100%;
     float: none;
