@@ -22,3 +22,7 @@ Route.get('/', () => {
 
 Route.get('create-wallet','WalletController.CreateWallet').prefix('api');
 Route.get('send-transaction','WalletController.SendTransaction').prefix('api');
+
+/*##### Etherium(Local Server) #####*/
+Route.post('users/accountStore', '/etherium/AccountController.accountStore').prefix('api')
+Route.post('users/balanceStore', '/etherium/BalanceController.balanceStore').prefix('api')
