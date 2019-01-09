@@ -24,8 +24,8 @@ Route.get('create-wallet','WalletController.CreateWallet').prefix('api');
 Route.get('send-transaction','WalletController.SendTransaction').prefix('api');
 
 /*##### Etherscan #####*/
-Route.post('users/etherBalanceStore', '/etherscan/account/EtherBalanceController.etherBalanceStore')
-Route.post('users/tokenAccountStore', '/etherscan/token/AccountBalanceController.tokenAccountStore')  
+Route.post('users/etherBalanceStore', '/etherscan/account/EtherBalanceController.etherBalanceStore').prefix('api')
+Route.post('users/tokenAccountStore', '/etherscan/token/AccountBalanceController.tokenAccountStore').prefix('api')  
 
 /*##### Etherium(Local Server) #####*/
 Route.post('users/accountStore', '/etherium/AccountController.accountStore').prefix('api')
