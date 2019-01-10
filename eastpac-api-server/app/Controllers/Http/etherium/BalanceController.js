@@ -40,7 +40,7 @@ class BalanceController {
             // Show response IF failed request
             return response.status(422).json({
                 status: 'Failed',
-                message: getacc.data.message
+                message: 'Sorry, you can\'t check balance. Please try again!' 
             })
         }
         

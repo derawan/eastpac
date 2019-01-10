@@ -6,7 +6,6 @@ const Util   = require("util");
 const Ethers = require("ethers");
 const utils  = require("ethers-utils")
 
-
 const mainnet = 'https://rinkeby.etherscan.io/';
 const web3 = new Web3(new Web3.providers.HttpProvider(mainnet));
 
