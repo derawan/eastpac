@@ -42,18 +42,18 @@ class AccountBalanceController {
                 return response.json({
                     status: 0,
                     message: 'Hi, your request successfully accepted. Here\'s your Token Balance. Thank you.',
-                    balance: getacc.data.result
+                    token: getacc.data.result
                 })
                 /*##### End display message when SUCCESS from API local to server Etherscan #####*/
             }
         } catch (error) {
-            /*##### Start display message when ERROR from frontend to API local #####*/
+            /*##### Start display message when ERROR from Backend to API local #####*/
             // console.error(error)
             return response.status(422).json({
                 status: 'Failed',
                 message: 'Sorry, you can\'t check token balance. Please try again!'
             })
-            /*##### End display message when ERROR from frontend to API local #####*/
+            /*##### End display message when ERROR from Backend to API local #####*/
         }
     }
 }

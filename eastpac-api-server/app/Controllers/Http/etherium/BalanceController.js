@@ -34,7 +34,7 @@ class BalanceController {
             return response.json({
                 status: 'Successfully',
                 message: 'Hi, your request successfully accepted. Here\'s your Balance. Thank you.',
-                data: gb
+                balance: gb
             })
         } catch (error) {
             // Show response IF failed request
