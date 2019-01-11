@@ -4,9 +4,30 @@ var util = require("util")
 
 const axios = require('axios')
 
+const { validate } = use('Validator')
+
+const { rule } = require('indicative')
+
 class PriceConversionController {
     async priceRequest({ request, response, auth }){
         try {
+            const rules = {
+                amount: 'required',
+                convert: 'required|string'
+            }
+
+            const messages = {
+                required: 'Require!',
+                string: 'Must string!'
+            }
+
+            const validation = await validate(request.body, rules, messages)
+
+            // Debugging via console
+            if (validation.fails()) {
+                return response.send(validation.messages())
+            }
+
             // Using Env
             const Env = use('Env')
             
@@ -15,10 +36,10 @@ class PriceConversionController {
 
             let data = {
                 params: {
-                    amount: request.input('amount'),
-                    symbol: 'ETH',
-                    time: '2018-12-22T06:04:02.000Z',
-                    convert: request.input('convert'),
+                    amount: request.body.amount,
+                    symbol: request.body.symbol,
+                    time: request.body.time,
+                    convert: request.body.convert,
                 }
             }
 
@@ -27,25 +48,14 @@ class PriceConversionController {
             // Call Axios
             const getpc = await axios.get(testing_url, data, header);
             
-            // Debugging via console
-            // console.log(util.inspect(getpc.data.data))
 
-            if(getpc.error_code == 400) {
-                /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
-                return response.json({
-                    error_code: 400,
-                    message: getpc.error_message,
-                })
-                /*##### End display message when SUCCESS from API local to server CoinMarket #####*/
-            } else {
-                /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
-                return response.json({
-                    error_code: 0,
-                    message: 'Your request about Price Conversion accepted. Here\'s result from Price Conversion',
-                    data: getpc.data.data
-                })
-                /*##### End display message when SUCCESS from API local to server CoinMarket #####*/
-            }
+            /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
+            return response.json({
+                error_code: 0,
+                message: 'Your request for Price Conversion accepted. Here\'s result from Price Conversion',
+                data: getpc.data.data
+            })
+            /*##### End display message when SUCCESS from API local to server CoinMarket #####*/
         } catch (error) {
             /*##### Start display message when ERROR from frontend to API local #####*/
             // console.error(error)
