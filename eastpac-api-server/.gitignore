@@ -6,6 +6,6 @@ tmp
 
 # Environment variables, never commit this file
 .env
-
+package-lock
 # The development sqlite file
 database/development.sqlite
