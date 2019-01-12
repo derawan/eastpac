@@ -31,7 +31,7 @@ class PriceConversionController {
 
             if (validation.fails()) {
                 // return response.send(validation.messages())
-                return response.json({
+                return response.status(400).json({
                     error_code: 400,
                     error_messages: validation.messages()
                 })
@@ -60,9 +60,8 @@ class PriceConversionController {
             // Call Axios
             const getpc = await axios.get(testing_url, data, header);
             
-            
             /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
-            return response.json({
+            return response.status(200).json({
                 error_code: 0,
                 message: 'Your request for Price Conversion accepted. Here\'s result from Price Conversion',
                 data: getpc.data.data
