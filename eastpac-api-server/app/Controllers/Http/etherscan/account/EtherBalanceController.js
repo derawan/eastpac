@@ -3,11 +3,34 @@
 var util = require("util")
 
 const axios = require('axios')
-// const Balance = use('App/Models/etherscan/EtherBalance')
+
+const { validate } = use('Validator')
+
+const { rule } = require('indicative') 
 
 class EtherBalanceController {
     async etherBalanceStore({ request, response, auth }) {
         try {
+            const rules = {
+                address: [
+                    rule('required')
+                ]
+            }
+
+            const messages = {
+                required: '{{ field }} can\'t be blank'
+            }
+
+            const validation = await validate(request.body, rules, messages)
+
+            if (validation.fails()) {
+                // return response.send(validation.messages())
+                return response.json({
+                    error_code: 115,
+                    error_messages: validation.messages()
+                })
+            }
+
             // Using Env
             const Env = use('Env')
             
@@ -17,7 +40,7 @@ class EtherBalanceController {
                 params: {
                     module: Env.get('MODULE_ETHBAL'),
                     action: Env.get('ACTION_ETHBAL'),
-                    address: request.input('address'),
+                    address: request.body.address,
                     tag: Env.get('TAG__ETHBAL'),
                     apikey: Env.get('API_KEY_ETHBAL')
                 }
@@ -48,8 +71,8 @@ class EtherBalanceController {
         } catch (error) {
             /*##### Start display message when ERROR from Backend to API local #####*/
             // console.error(error)
-            return response.status(422).json({
-                status: 'Failed',
+            return response.json({
+                error_code: 111,
                 message: 'Sorry, you can\'t check balance. Please try again!'
             })
             /*##### End display message when ERROR from Backend to API local #####*/

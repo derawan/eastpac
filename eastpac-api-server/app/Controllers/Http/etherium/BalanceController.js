@@ -4,7 +4,10 @@ var Web3 = require("web3")
 var util = require("util")
 
 const mainnet = 'http://127.0.0.1:7545'
-// const Balance = use('App/Models/etherium/Balance')
+
+const { validate } = use('Validator')
+
+const { rule } = require('indicative')
 
 let web3 = new Web3(new Web3.providers.HttpProvider(mainnet));
 
@@ -21,7 +24,27 @@ class BalanceController {
 
     async balanceStore({ request, response, auth }) {
         try {
-            let address_val = request.input('address')
+            const rules = {
+                address: [
+                    rule('required')
+                ]
+            }
+
+            const messages = {
+                required: '{{ field }} can\'t be blank'
+            }
+
+            const validation = await validate(request.body, rules, messages)
+
+            if (validation.fails()) {
+                // return response.send(validation.messages())
+                return response.json({
+                    error_code: 115,
+                    error_messages: validation.messages()
+                })
+            }
+
+            let address_val = request.body.address
 
             // Call Web3
             const gb = await web3.eth.getBalance(address_val)
@@ -32,14 +55,14 @@ class BalanceController {
 
             // Show response IF successfully request
             return response.json({
-                status: 'Successfully',
+                error_code: 100,
                 message: 'Hi, your request successfully accepted. Here\'s your Balance. Thank you.',
                 balance: gb
             })
         } catch (error) {
             // Show response IF failed request
-            return response.status(422).json({
-                status: 'Failed',
+            return response.json({
+                error_code: 111,
                 message: 'Sorry, you can\'t check balance. Please try again!' 
             })
         }
