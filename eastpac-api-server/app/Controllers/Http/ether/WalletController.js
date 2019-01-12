@@ -33,15 +33,15 @@ class WalletController {
             // console.log(util.inspect(save))
 
             // Show response IF successfully store
-            return response.status(200).json({
-                status: "Success",
-                message: 'Your successfully create Wallet account',
+            return response.json({
+                error_code: 100,
+                message: 'Congratulation, your successfully create Wallet account',
                 data: randomWallet
             })
         } catch (error) {
             // Show response IF failed store
-            return response.status(422).json({
-                status: "Failed",
+            return response.json({
+                error_code: 111,
                 message: 'You can\'t create Wallet. Please try again!'
             })
         }

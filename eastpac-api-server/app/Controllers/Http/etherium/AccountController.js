@@ -30,21 +30,21 @@ class AccountController {
             account.private_key = ca.privateKey
 
             // Store 
-            const res = await account.save()
+            await account.save()
 
             // Debugging via console
             // console.log(util.inspect(res))
 
             // Show response IF successfully store
-            return response.status(200).json({
-                status: 'Success',
-                message: 'Congratulation, your successfully create account',
+            return response.json({
+                error_code: 100,
+                message: 'Congratulation, your account successfully created',
                 data: ca
             })
         } catch (error) {
             // Show response IF failed store
-            return response.status(422).json({
-                status: 'Failed',
+            return response.json({
+                error_code: 111,
                 message: 'You can\'t create account. Please try again!'
             })
         }

@@ -3,7 +3,6 @@
 var util = require("util")
 
 const axios = require('axios')
-// const Balance = use('App/Models/etherscan/TokenAccountBalance')
 
 const { validate } = use('Validator')
 
@@ -30,7 +29,7 @@ class AccountBalanceController {
             if (validation.fails()) {
                 // return response.send(validation.messages())
                 return response.json({
-                    error_code: 1,
+                    error_code: 115,
                     error_messages: validation.messages()
                 })
             }
@@ -76,8 +75,8 @@ class AccountBalanceController {
         } catch (error) {
             /*##### Start display message when ERROR from Backend to API local #####*/
             // console.error(error)
-            return response.status(422).json({
-                status: 'Failed',
+            return response.json({
+                error_code: 111,
                 message: 'Sorry, you can\'t check token balance. Please try again!'
             })
             /*##### End display message when ERROR from Backend to API local #####*/

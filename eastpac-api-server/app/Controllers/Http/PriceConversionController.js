@@ -31,8 +31,8 @@ class PriceConversionController {
 
             if (validation.fails()) {
                 // return response.send(validation.messages())
-                return response.status(400).json({
-                    error_code: 400,
+                return response.json({
+                    error_code: 115,
                     error_messages: validation.messages()
                 })
             }
@@ -62,7 +62,7 @@ class PriceConversionController {
             
             /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
             return response.status(200).json({
-                error_code: 0,
+                error_code: 100,
                 message: 'Your request for Price Conversion accepted. Here\'s result from Price Conversion',
                 data: getpc.data.data
             })
@@ -70,9 +70,9 @@ class PriceConversionController {
         } catch (error) {
             /*##### Start display message when ERROR from frontend to API local #####*/
             // console.error(error)
-            return response.status(422).json({
-                status: 'Failed',
-                message: 'Sorry, process failed. Please try again!'
+            return response.json({
+                error_code: 111,
+                message: 'Sorry, you can\'t convert price. Please try again!'
             })
             /*##### End display message when ERROR from frontend to API local #####*/
         }
