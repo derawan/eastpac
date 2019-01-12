@@ -12,43 +12,55 @@ class PriceConversionController {
     async priceRequest({ request, response, auth }){
         try {
             const rules = {
-                amount: 'required',
-                convert: 'required|string'
+                amount: [
+                    rule('number'),
+                    rule('required')
+                ],
+                convert: [
+                    rule('string'),
+                    rule('required')
+                ]
             }
 
             const messages = {
-                required: 'Require!',
-                string: 'Must string!'
+                required: '{{ field }} can\'t be blank!',
+                string: '{{ field }} can\'t string!'
             }
 
             const validation = await validate(request.body, rules, messages)
 
-            // Debugging via console
             if (validation.fails()) {
-                return response.send(validation.messages())
+                // return response.send(validation.messages())
+                return response.json({
+                    error_code: 400,
+                    error_messages: validation.messages()
+                })
             }
-
+            
             // Using Env
             const Env = use('Env')
             
             // Get Price Conversion
             const testing_url = 'https://sandbox-api.coinmarketcap.com/v1/tools/price-conversion'
-
+            
             let data = {
                 params: {
                     amount: request.body.amount,
-                    symbol: request.body.symbol,
+                    symbol: Env.get('PRICE_SYMBOL'),
                     time: request.body.time,
                     convert: request.body.convert,
                 }
             }
+
+            // Debugging via console
+            // console.log(util.inspect(data))
 
             const header = axios.defaults.headers.common['X-CMC_PRO_API_KEY'] = 'b8552ff8-30a7-4cfc-9bab-d462687e8be4'
 
             // Call Axios
             const getpc = await axios.get(testing_url, data, header);
             
-
+            
             /*##### Start display message when SUCCESS from API local to server CoinMarket #####*/
             return response.json({
                 error_code: 0,
