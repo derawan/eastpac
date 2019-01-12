@@ -5,9 +5,36 @@ var util = require("util")
 const axios = require('axios')
 // const Balance = use('App/Models/etherscan/TokenAccountBalance')
 
+const { validate } = use('Validator')
+
+const { rule } = require('indicative')
+
 class AccountBalanceController {
     async tokenAccountStore({ request, response, auth }) {
         try {
+            const rules = {
+                contractaddress: [
+                    rule('required')
+                ],
+                address: [
+                    rule('required')
+                ]
+            }
+
+            const messages = {
+                required: '{{ field }} can\'t be blank!'
+            }
+
+            const validation = await validate(request.body, rules, messages)
+
+            if (validation.fails()) {
+                // return response.send(validation.messages())
+                return response.json({
+                    error_code: 1,
+                    error_messages: validation.messages()
+                })
+            }
+
             // Using Env
             const Env = use('Env')
             
@@ -17,8 +44,8 @@ class AccountBalanceController {
                 params: {
                     module: Env.get('MODULE_TOKBAL'),
                     action: Env.get('ACTION_TOKBAL'),
-                    contractaddress: request.input('contractaddress'),
-                    address: request.input('address'),
+                    contractaddress: request.body.contractaddress,
+                    address: request.body.address,
                     tag: Env.get('TAG_TOKBAL'),
                     apikey: Env.get('API_KEY_TOKBAL')
                 }
