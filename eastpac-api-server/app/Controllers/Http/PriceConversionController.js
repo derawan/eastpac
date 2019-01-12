@@ -55,7 +55,7 @@ class PriceConversionController {
             // Debugging via console
             // console.log(util.inspect(data))
 
-            const header = axios.defaults.headers.common['X-CMC_PRO_API_KEY'] = 'b8552ff8-30a7-4cfc-9bab-d462687e8be4'
+            const header = axios.defaults.headers.common['X-CMC_PRO_API_KEY'] = Env.get('PRICE_APIKEY')
 
             // Call Axios
             const getpc = await axios.get(testing_url, data, header);
