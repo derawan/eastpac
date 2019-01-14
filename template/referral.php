@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <link rel="stylesheet" href="dist/css/contribution.css">
   <link rel="stylesheet" href="dist/css/skins/skin-black.css">
-
+  <link rel="shortcut icon" href="dist/img/favicon.ico">
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -46,7 +46,7 @@
         <!-- start card -->
         <div class="card">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <!-- Start box box-warning -->
                     <div class="box box-warning">
                           <div class="box-header">
@@ -61,7 +61,7 @@
                                 <h6>My unique referral link</h6>
                                 <!-- Start refferal-info -->
                                 <div class="refferal-info">
-                                    <div class="input-group input-group-sm">
+                                    <div class="input-group input-group-lg">
                                       <input type="text" class="form-control" style="border:1px solid #f39c12" value="https://demo.eastpac.io/ico?ref=7d264f90653733592">
                                       <span class="input-group-btn">
                                         <button type="button" class="btn btn-warning btn-flat"><i class="fa fa-copy"></i></button>
@@ -72,7 +72,7 @@
                                 <h6>Share with</h6>
                                 <!-- Start referal-info -->
                                 <div class="refferal-info">
-                                    <div class="input-group input-group-sm col-md-12">
+                                    <div class="input-group input-group-lg col-md-12">
                                         <select class="form-control" style="border:1px solid #f39c12;  max-width: 100%;" >
                                             <option>Facebook</option>
                                             <option>Web/Blog</option>
@@ -83,28 +83,26 @@
                                 
                                 <h6>Share link</h6>
                                  <div class="refferal-info">
-                                    <div class="input-group input-group-sm col-md-12">
+                                    <div class="input-group input-group-lg col-md-12">
                                       <input type="text" class="form-control" style="border:1px solid #f39c12">
                                     </div>
                                 </div><!-- .share link --> 
                                 <br>
-                                <button class="btn btn-sm btn-warning">Submit</button>
+                                <button class="btn btn-lg btn-warning">Submit</button>
                           </div>
                           <!-- End box-body -->
                     </div>
                       <!-- End box box-warning -->
                 </div>
                 <!-- End Col -->
+<!--
 
                 <div class="col-md-6">
-                     <!--Table Section-->
-                     <!-- Start box box-warning -->
                     <div class="box box-warning">
                           <div class="box-header">
                             <h3 class="box-title">Referral List</h3>
                           </div> 
-                          <!-- End box box-warning header -->
-                            <!-- Start box-body -->
+                          
                             <div class="box-body">
                                 <table id="example" class="display" style="width:100%">
                                     <thead>
@@ -115,11 +113,10 @@
                                         </tr>
                                     </thead>
                                 </table>
-                            </div>
-                            <!-- End box-body -->
+                            </div> 
                     </div>
-                    <!-- End box box-warning -->
                 </div>
+-->
                 <!-- End col -->
             </div>
             <!-- End row card -->

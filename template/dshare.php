@@ -23,6 +23,7 @@
 <!--  <link rel="stylesheet" href="dist/css/skins/skin-black.css">-->
  
   <link rel="stylesheet" href="dist/css/skins/skin-black.css">
+  <link rel="shortcut icon" href="dist/img/favicon.ico">
 
 
   <!-- Google Font -->
@@ -30,6 +31,7 @@
 </head>
     
 <style>
+/*countdown timer*/
 #clockdiv{
   font-family: sans-serif;
   color: #fff;
@@ -43,7 +45,7 @@
 #clockdiv td > div{
   padding: 3px;
   border-radius: 5px;
-  background: #701296;
+/*  background: #701296;*/
   display:table-cell;
   margin-left: 0px;
 }
@@ -80,6 +82,12 @@
 }
 }
 
+/*amchartjs*/
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
 </style>
 
 <body class="hold-transition skin-black fixed">
@@ -108,7 +116,7 @@
                             <div class="col-md-4">
                                 <div class="tile-item tile-primary">
                                     <div class="tile-bubbles"></div>
-                                    <h6 class="tile-title">YOUR D-SHARE BALANCE</h6>
+                                    <h6 class="tile-title">YOUR D-SHARE</h6>
                                     <h4 class="tile-info">1250</h4>
                                 </div>
                             </div><!-- .col -->
@@ -131,44 +139,78 @@
                           <div class="row">
                             <div class="col-md-4">
                               <div class="input-group input-group-lg">
-                                <input type="text" class="form-control" style="border:1px solid #f39c12">
+                                <input type="text" class="form-control" style="border:1px solid #f39c12" id="est">
                                 <span class="input-group-btn">
-                                  <button type="button" class="btn btn-warning btn-flat">EAST</button>
+                                  <button type="button" class="btn btn-warning btn-flat">EST</button>
                                 </span>
                               </div>
                             </div>
                             <div class="col-md-1" style=" text-align: center; margin-top:10px"><i class="fa fa-exchange"></i></div>
                              <div class="col-md-4">
                               <div class="input-group input-group-lg">
-                                <input type="text" class="form-control" style="border:1px solid #f39c12">
+                                <input type="text" class="form-control" style="border:1px solid #f39c12" id="dshare">
                                 <span class="input-group-btn">
-                                  <button type="button" class="btn btn-warning btn-flat">D-SHARE</button>
+                                  <button type="button" class="btn btn-warning btn-flat">EST</button>
                                 </span>
                               </div>
                             </div>
                             <div class="col-md-2 div-btn-process"><button class="btn btn-lg btn-warning pull-right" onclick="processExchange()">Process</button></div>
                           </div><hr>
-
+                          
+                           <!--tab start -->
                           <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Transaction</h4>
-                                    <!-- Start Data Table -->
-                                    <div class="table-responsive">
-                                    <table id="example" class="display dt-responsive" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>TxHash</th>
-                                                <th>Block</th>
-                                                <th>Age</th>
-                                                <th>From</th>
-                                                <th>To</th>
-                                                <th>Value</th>
-                                            </tr>
-                                        </thead>
-                                      </table>
-                                    </div>
-                                </div>   
-                           </div>
+                            <div class="col-md-12">
+                                <!-- Start nav-tabs -->
+                                <div class="nav-tabs-custom">
+                                    <ul class="nav nav-tabs">
+                                      <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">D-Share Chart</a></li>
+                                      <li><a href="#tab_2" data-toggle="tab" aria-expanded="false">D-Share Transaction</a></li>
+                                      <li><a href="#tab_3" data-toggle="tab" aria-expanded="false">My D-Share</a></li>
+                                     </ul>
+                                </div><!-- end nav-tabs -->
+                                <!-- Start tab-content -->
+                                <div class="tab-content">
+                                     <!-- start tab content dshare chart-->
+                                    <div class="tab-pane active" id="tab_1">
+                                        <div id="chartdiv"></div>
+                                    </div><!-- end tab content dshare chart-->
+                                         <!-- start tab content dshare table-->
+                                    <div class="tab-pane" id="tab_2">
+                                        <div id="box-body table-responsive">
+                                           <table id="all-dshare" class="display dt-responsive" style width="100%">
+                                              <thead>
+                                                 <tr>
+                                                    <th>TxHash</th>
+                                                    <th>Block</th>
+                                                    <th>Age</th>
+                                                    <th>From</th>
+                                                    <th>To</th>
+                                                    <th>Value</th>
+                                                 </tr>
+                                              </thead>
+                                           </table>
+                                        </div>
+                                    </div><!-- end tab content dshare table-->
+                                             <!-- start tab content dshare chart-->
+                                    <div class="tab-pane" id="tab_3">
+                                        <div id="box-body table-responsive">
+                                           <table id="my-dshare" class="display dt-responsive" style width="100%">
+                                              <thead>
+                                                 <tr>
+                                                    <th>TxHash</th>
+                                                    <th>Block</th>
+                                                    <th>Age</th>
+                                                    <th>From</th>
+                                                    <th>To</th>
+                                                    <th>Value</th>
+                                                 </tr>
+                                              </thead>
+                                           </table>
+                                        </div>
+                                    </div><!-- end tab content dshare chart-->
+                                </div><!-- end tab-content -->
+                            </div>
+                          </div>
                            <!-- End Box-body -->
                         </div>
                          <!-- End box box-solid box-warning  -->
@@ -177,26 +219,18 @@
                 </div>
                 <!-- End row -->
 
-                <!--company news-->
+                <!--exchange rate-->
                 <div class="col-md-3" border="1px">
                   <div class="box box-solid box-warning">
                     <div class="box-header with-border">
-                      <div class="box-title"><h3>D-Share Sale</h3></div>
+                      <div class="box-title"><h3>D-Share Current Price</h3></div>
                     </div>
 
                     <!-- Start Box-body -->
                     <div class="box-body">
-<!--
-                        <h6>D-SHARE PRICE</h6>
-                        <h4>1 D-SHARE = 10 EAST</h4>
-                        <hr>
--->
                         <h6>EXCHANGE RATE</h6>
-                        <h4>1 ETH = 10 EAST = 1 D-SHARE</h4>
-                        <hr>
-                        <!-- countdown-->
-                        
-                               
+                        <h4>1 ETH = 100 EAST = 70 D-SHARE</h4>
+                        <hr>      
                     </div>
                     <!-- End Box-body -->
                   </div>
@@ -267,7 +301,8 @@
                             <!-- End Box-body -->
                       </div>
                       <!-- End box box-solid box-warning -->
-
+                </div>
+            </div>
         </div>
         <!-- End User-panel -->
     </div>
@@ -302,122 +337,13 @@
 <script src="dist/sweetalert/dist/sweetalert.min.js"></script>
 <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- amchartjs -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<!--all dshare js-->    
+<script src="dist/js/dshare.js"></script>
 
-<script>
-// Set the date we're counting down to
-function getTimeRemaining(endtime) {
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  return {
-    'total': t,
-    'days': days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
-  };
-}
-
-function initializeClock(id, endtime) {
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
-
-  function updateClock() {
-    var t = getTimeRemaining(endtime);
-
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-    if (t.total <= 0) {
-      clearInterval(timeinterval);
-    }
-  }
-
-  updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
-}
-
-var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-initializeClock('clockdiv', deadline);
-</script>
-<script>
-
-
-
-/*datatable*/
-$(document).ready(function() {
-  var responseObj = [
-    { "txhash": "0xc5b42f52eaab33e..", "block": "90898",  "age":"21 sec ago", "from":"0x3c66e1269ae137..", "to":"0x87sad", "value":"0 ether"},
-    { "txhash": "0xc2fd8a0e3907df7..", "block": "90898",  "age":"22 sec ago", "from":"	0xf20d07900431142..", "to":"0xss4a4", "value":"0.002 ether"},
-    { "txhash": "0x2092d11700bca9..", "block": "90898",  "age":"23 sec ago", "from":"0x52bfab512f937fe4..", "to":"0xsad45", "value":"0 ether"},
-    { "txhash": "0xe1813da5e378a1..", "block": "90898",  "age":"24 sec ago", "from":"0xd2db057a0fac0c5..", "to":"0xasd49", "value":"0 ether"},
-    { "txhash": "0xc9dbded8861ea0..", "block": "90898",  "age":"25 sec ago", "from":"0xba3fd1990281283..", "to":"0xasd54", "value":"0.002 ether"}
-   
-];
-$('#example').dataTable({
-   "data": responseObj,
-   "columns": [
-     
-      { 
-         "data": "txhash",
-         "render": function(data, type, row, meta){
-            if(type === 'display'){
-                data = '<a href="txhash.php">' + data + '</a>';
-            }
-            
-            return data;
-         }
-      },
-      { 
-         "data": "block",
-         "render": function(data, type, row, meta){
-            if(type === 'display'){
-                data = '<a href="block.php">' + data + '</a>';
-            }
-            
-            return data;
-         }
-      },
-      { 
-         "data": "age",
-        
-      },
-      { 
-         "data": "from",
-         "render": function(data, type, row, meta){
-            if(type === 'display'){
-                data = '<a href="from.php">' + data + '</a>';
-            }
-            
-            return data;
-         }
-      },
-      { 
-         "data": "to",
-         "render": function(data, type, row, meta){
-            if(type === 'display'){
-                data = '<a href="to.html">' + data + '</a>';
-            }
-            
-            return data;
-         }
-      },
-      { 
-
-         "data": "value",
-
-      }
-   ]
-});
-});
-</script>
 
 </body>
 </html>

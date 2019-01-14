@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+  <link rel="shortcut icon" href="dist/img/favicon.ico">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.css">
   <link rel="stylesheet" href="dist/css/contribution.css">
@@ -45,7 +46,7 @@
 #clockdiv td > div{
   padding: 3px;
   border-radius: 5px;
-  background: #701296;
+/*  background: #701296;*/
   display:table-cell;
   margin-left: 0px;
 }
@@ -154,14 +155,14 @@
 										<div class="row">
 											<div class="col-md-6 col-sm-9 col-xs-8">
 											<div class="input-group input-group-md">
-												<input type="text" class="form-control" style="border:1px solid #f39c12">
+												<input type="number" class="form-control" style="border:1px solid #f39c12" id="txtEth">
 												<span class="input-group-btn">
 												  <button type="button" class="btn btn-warning btn-flat">ETH</button>
 												</span>
 											</div>
 										 </div>
 										<div class="col-md-1 col-sm-1 col-xs-1" style="margin-top:10px"><i class="fa fa-exchange"></i></div>       
-										<div class="col-md-4 col-sm-2 col-xs-2" style="margin-top:10px"><p><b>100 EAST</b></p></div>
+										<div class="col-md-4 col-sm-2 col-xs-2" style="margin-top:10px"><p id="resultEst"><b >0 EAST</b></p></div>
 										</div>
 										<div class="row">
 											<div class="col-md-12">
@@ -169,19 +170,68 @@
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-12"><button class="btn btn-sm btn-warning pull-right">Buy Token</button></div>
+											<div class="col-md-12"><a class="btn btn-sm btn-warning pull-right" href="contribution.php">Buy Token</a></div>
 										</div>
 									</div>
 								</div>     
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xl-12 col-md-8 col-lg-8"><!--start token sale graph-->
-								<div class="token-sale-graph card card-full-height">
-									<div class="card-innr">
-										<div class="chart-tokensale"><canvas id="lineChart" height="128px"></canvas></div>
-									</div>
-								</div><!-- .card -->
+							<div class="col-xl-12 col-md-8 col-lg-8"><!--start token sale graph-->	
+                            <div class="gaps-3x">
+                                <table class="table table-bordered" class="display" style="width:100%">
+                                    <tbody>
+                                        <tr>
+                                            <th>Presale</th>
+                                            <th>Sale Stage 1</th>
+                                            <th>Sale Stage 2</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>03 January 2019</td>
+                                            <td>10 March 2019</td>
+                                            <td>15 June 2019</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>15 June 2019</td>
+                                            <td>05 September 2019</td>
+                                            <td>20 December 2019</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>20 December 2019</td>
+                                            <td>16 February 2020</td>
+                                            <td>19 May 2020</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>19 May 2020</td>
+                                            <td>15 August 2020</td>
+                                            <td>01 November 2020</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>01 November 2020</td>
+                                            <td>15 February 2021</td>
+                                            <td>20 July 2021</td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+                                <div class="box-footer clearfix">
+                                    <ul class="pagination pagination-sm no-margin pull-right">
+                                        <li><a href="#">«</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>   
+                                
+							<div style="clear:both;"></div>
+							<!-- .card -->
 							</div><!--end token sale graph-->
 							<!--start token sale progress-->
 							<div class="col-xl-12 col-md-4 col-lg-4">
@@ -191,8 +241,8 @@
 									</div>
 									<div class="box-body">
 										<ul class="progress-info">
-											<li><span>Raised</span> 2,758 TWZ</li>
-											<li class="text-right"><span>TOTAL</span> 1,500,000 TWZ</li>
+											<li><span>Raised</span> 2,758 EST</li>
+											<li class="text-right"><span>TOTAL</span> 1,500,000 EST</li>
 										</ul>
 										<div class="progress-bar" style="width: 100%">
 											<div class="progress-hcap" data-percent="83" style="width: 83%;"><div>Hard cap <span>1,400,000</span></div></div>
@@ -238,19 +288,15 @@
 									</div>
 								</div>     
 							</div><!--end token sale progress-->
+							<div class="col-xl-12 col-md-12 col-lg-12">
+								<div id="chartdiv" style="width:100%;height:400px;"></div>
+							</div>							
+                            <div class="col-xl-12 col-md-12 col-lg-12">
+								<div id="chartdiv2" style="width:100%;height:400px;"></div>
+							</div>
 						</div>
 						<hr>
-						<div class="gaps-3x">
-							<table id="example" class="display" style="width:100%">
-								<thead>
-									<tr>
-										<th>Presale</th>
-										<th>Sale Stage 1</th>
-										<th>Sale Stage 2</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
+						
 					</div>                
 				</div>
 			</section>
@@ -258,7 +304,11 @@
 	</div>
 	<!--Footer section-->
 	<?php include('page-footer.html'); ?>
-	
+
+	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>         
+	<script src="//www.amcharts.com/lib/3/amstock.js"></script>
 	<!-- jQuery 3 -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap 3.3.7 -->
@@ -284,6 +334,13 @@
 	<script src="dist/js/demo.js"></script>
 	<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    
+    <!-- amchartjs -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+	<script src="dist/js/js-candlestick.js"></script>
+	<script src="dist/js/js-linechart.js"></script>
 
 	<script>
 		//countdown timer
@@ -347,31 +404,15 @@
 		});
 	});
 	</script>
+    
+    <script>
+        
+    $('#txtEth').keyup(function(){
+        var valEth = ($(this).val() * 1) * 100;
+        document.getElementById('resultEst').innerHTML = '<b>' + valEth + ' EAST</b>';
+    })
+    </script>
 
-	<script>
-	  //chart
-	  var ctxL = document.getElementById("lineChart").getContext('2d');
-	  var myLineChart = new Chart(ctxL, {
-		type: 'line',
-		data: {
-		  labels: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"],
-		  datasets: [{
-			  label: "Tokens Sale Graph",
-			  data: [65, 59, 80, 81, 56, 55, 40, 24, 46, 94, 53, 25, 64, 37],
-			  backgroundColor: [
-				'rgba(105, 0, 132, .2)',
-			  ],
-			  borderColor: [
-				'rgba(200, 99, 132, .7)',
-			  ],
-			  borderWidth: 2
-			},
-		  ]
-		},
-		options: {
-		  responsive: true
-		}
-	  });
-	</script>
+
 </body>
 </html>

@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserAccount;
+use App\UserProfile;
+use App\UserWallet;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use Validator;
+use Browser;
 
 
 class ProfileController extends Controller
@@ -24,7 +28,30 @@ class ProfileController extends Controller
     public function index()
     {
         $title = "Profile";
-        return view('profile.index', compact('title'));
+        $useraccount = UserAccount::where('userid',Auth::user()->id)->first();
+        // $userwallet = UserWallet::where('user_id',Auth::user()->id)->first();
+        $userprofile = UserProfile::where ('userid',Auth::user()->id)->first();
+        // $userprofile = [];
+        if(is_null($userprofile)) {
+            $userprofile = (Object) [
+                'address' => '',
+                'personalid' => '',
+                'bod' => '',
+                'pob' => '',
+            ];
+        }
+
+        if(is_null($useraccount)) {
+            $useraccount = (Object) [
+                'userid' => '',
+                'UserAccountID' => '',
+                'UserKey1' => '',
+                'UserKey2' => '',
+                'tipe' => ''
+            ];
+        }
+
+        return view('profile.index', compact('title','userprofile','useraccount'));
     }
 
     /**
@@ -100,6 +127,33 @@ class ProfileController extends Controller
         return response()->json($result, $status);
     }
 
+    public function updateProfile(Request $request)
+    {
+        // dd($request->file('avatar'));
+        $validator = Validator::make($request->all(), [
+            'avatar' => 'required|image'
+        ]);
+
+        if($validator->fails()) {
+
+            return redirect()->back()->withErrors($validator);
+        } else {
+
+           /* User::where('username', $username)->update([
+                'name' => $request->fullname
+            ]);*/
+            if (isset($request->avatar)) {
+                // dd('kakaikuda');
+                Auth::user()->addMediaFromRequest("avatar")->toMediaCollection('avatars');
+            }
+            return redirect()->back();
+        }
+
+
+
+        return response()->json($result, $status);
+    }
+
     public function updatePassword(Request $request)
     {
         $username = Auth::user()->username;
@@ -109,6 +163,7 @@ class ProfileController extends Controller
             'password' => 'required|confirmed'
         ]);
 
+
         $check_old_password = Hash::check($request->password_old, Auth::user()->password);
         // dd($validator->errors());
         if($validator->fails()) {
@@ -116,12 +171,26 @@ class ProfileController extends Controller
             $status = 500;
         } else {
             if($check_old_password) {
+                activity('change_password')
+                ->causedBy(Auth::user())
+                ->performedOn(new User)
+                ->withProperties(
+                    [
+                        'device' => Browser::platformName(),
+                        'browser' => Browser::browserFamily(),
+                        'ip_addr' => request()->ip()
+
+                    ])
+                ->log('Change Password');
+
                 $result = ['msg' => 'Udpate Password Success', 'type' => 'success'];
                 $status = 200;
 
                 User::where('username', $username)->update([
                     'password' => bcrypt($request->password)
                 ]);
+
+
             } else {
                 $result = ['msg' => 'Wrong old password', 'type' => 'danger'];
                 $status = 500;
@@ -130,6 +199,55 @@ class ProfileController extends Controller
 
         return response()->json($result, $status);
     }
+
+    public function UpdatePersonalProfile(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $validator = Validator::make($request->all(), [
+            'address'     => 'required',
+            'bod'  => 'required',
+            'pob'       => 'required',
+            'personalid' => 'required',
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            $userprofile = new UserProfile([
+                'userid' =>$userid,
+                'address' => $request->get('address'),
+                'personalid'=> $request->get('personalid'),
+                'bod'=> $request->get('bod'),
+                'pob'=> $request->get('pob'),
+              ]);
+            $userprofile->save();
+            return redirect()->back();
+        }
+    }
+
+    public function UserAccounts(Request $request)
+    {
+        $userid = Auth::user()->id;
+        $validator = Validator::make($request->all(), [
+            'UserAccountID'     => 'required',
+            'UserKey1'  => 'required',
+            'UserKey2'  => 'required',
+            'tipe' => 'required',
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            $useraccounts = new UserAccounts([
+                'userid' =>$userid,
+                'UserAccountID' => $request->get('UserAccountID'),
+                'UserKey1'=> $request->get('UserKey1'),
+                'UserKey2'=> $request->get('UserKey2'),
+                'tipe'=> $request->get('tipe'),
+              ]);
+            $useraccounts->save();
+            return redirect()->back();
+        }
+    }
+
 
     /**
      * Remove the specified resource from storage.
