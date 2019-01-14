@@ -35,6 +35,12 @@ Route.group(() => {
     Route.post('users/priceRequest', 'PriceConversionController.priceRequest')
 }).prefix('api/v1')
 
+// Route API Authentication
+Route.post('api/api/login', '/jwt/AuthController.postLoginApi').as('loginApi')
+Route.post('api/api/logout', '/jwt/AuthController.postLogoutApi').as('logoutApi').middleware(['auth:api'])
+Route.post('api/api/logoutAll', '/jwt/AuthController.postLogoutApiAll').as('logoutApiAll').middleware(['auth:api'])
+Route.get('api/api/profile', '/jwt/AuthController.getProfileApi').as('profileApi').middleware(['auth:api'])
+
 /* Route.group(() => {
     Route.get('contacts', 'ContactController.index')
     Route.get('contact/:id', 'ContactController.show')
