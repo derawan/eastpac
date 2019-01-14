@@ -7,7 +7,7 @@ use Spatie\Activitylog\Models\Activity;
 use Auth;
 use Browser;
 use App\User;
-
+use App\Security;
 class SecurityController extends Controller
 {
     /**
@@ -19,9 +19,19 @@ class SecurityController extends Controller
     {
         // dd(Browser::browserName());
         $activities = Activity::where('causer_id', Auth::user()->id)->get();
+        $security = Security::where('user_id', Auth::user()->id)->first();
+
+        $activityLog = true;
+        $passwordChange = true;
+        $tokenWithDraw = true;
 
         $title = 'Security';
-        return view('layouts.sections.security', compact('title', 'activities'));
+        return view('layouts.sections.security', compact('title',
+                                                        'activities',
+                                                        'activityLog',
+                                                        'passwordChange',
+                                                        'tokenWithDraw',
+                                                        'security'));
     }
 
     /**

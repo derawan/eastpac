@@ -12,20 +12,20 @@
         background: #eff6ff;
         border-color: #c8d8f0;
     }
-    
+
     .switch {
         position: relative;
         display: inline-block;
         width: 60px;
         height: 34px;
     }
-    
-    .switch input { 
+
+    .switch input {
         opacity: 0;
         width: 0;
         height: 0;
     }
-    
+
     .slider {
         position: absolute;
         cursor: pointer;
@@ -37,7 +37,7 @@
         -webkit-transition: .4s;
         transition: .4s;
     }
-    
+
     .slider:before {
         position: absolute;
         content: "";
@@ -49,31 +49,31 @@
         -webkit-transition: .4s;
         transition: .4s;
     }
-    
+
     input:checked + .slider {
         background-color: #2196F3;
     }
-    
+
     input:focus + .slider {
         box-shadow: 0 0 1px #2196F3;
     }
-    
+
     input:checked + .slider:before {
         -webkit-transform: translateX(26px);
         -ms-transform: translateX(26px);
         transform: translateX(26px);
     }
-    
+
     /* Rounded sliders */
     .slider.round {
         border-radius: 34px;
     }
-    
+
     .slider.round:before {
         border-radius: 50%;
     }
-    
-</style> 
+
+</style>
 @endsection
 
 @section('content')
@@ -100,7 +100,11 @@
                                     <div class="col-md-1">
                                         <div class="form-group">
                                             <label class="switch">
-                                                <input type="checkbox"><span class="slider round"></span>                
+                                                @if ($security->activityLog == 1)
+                                                <input type="checkbox" checked><span class="slider round"></span>
+                                                @else
+                                                <input type="checkbox"><span class="slider round"></span>
+                                                @endif
                                             </label>
                                         </div>
                                         <!-- End form-group slinder round -->
@@ -116,7 +120,11 @@
                                     <div class="col-md-1">
                                         <div class="form-group">
                                             <label class="switch">
-                                                <input type="checkbox"><span class="slider round"></span>                
+                                                @if($security->passwordChange)
+                                                <input type="checkbox" checked><span class="slider round"></span>
+                                                @else
+                                                <input type="checkbox"><span class="slider round"></span>
+                                                @endif
                                             </label>
                                         </div>
                                         <!-- End form-group -->
@@ -132,7 +140,11 @@
                                     <div class="col-md-1">
                                         <div class="form-group">
                                             <label class="switch">
-                                                <input type="checkbox"><span class="slider round"></span>                
+                                                    @if($security->tokenWithDraw)
+                                                    <input type="checkbox" checked><span class="slider round"></span>
+                                                    @else
+                                                    <input type="checkbox"><span class="slider round"></span>
+                                                    @endif
                                             </label>
                                         </div>
                                         <!-- end form -->
@@ -144,7 +156,7 @@
                                     <!-- End col -->
                                 </div>
                                 <!-- End row -->
-                                
+
                             </div>
                             <!-- End status status-empty -->
                             <hr>
@@ -161,12 +173,12 @@
                                 </div>
                             </div>
                             <!-- End row -->
-                            <br> 
+                            <br>
                             <div class="row">
                                 <div class="col-md-1">
                                     <div class="form-group">
                                         <label class="switch">
-                                            <input type="checkbox" id="securityToogle"><span class="slider round"></span>                
+                                            <input type="checkbox" id="securityToogle"><span class="slider round"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -181,13 +193,13 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p><b>1) Install an authentication app on your device. Any app that supports the Time-based One-Time Password (TOTP) protocol should work, including:</b></p>
-                                        
+
                                         <p>- Google Authenticator (Android/iOS)</p>
                                         <p>- Authy (Android/iOS)</p>
                                         <p>- Microsoft Authenticator (Windows Phone)</p>
                                     </div>
                                     <!-- End col -->
-                                    
+
                                 </div>
                                 <!-- End row -->
                                 <br>
@@ -282,7 +294,7 @@
         <!-- End box-body -->
     </div>
     <!-- End box-warning -->
-</section>  
+</section>
 
 @endsection
 
@@ -308,7 +320,7 @@ $(document).ready(function() {
     //     ]
     // });
 });
-    
+
 $(function () {
         $("#securityToogle").click(function () {
             if ($(this).is(":checked")) {

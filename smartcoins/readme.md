@@ -11,7 +11,7 @@
 ```
 DB_DATABASE=smart_coin
 DB_USERNAME=root
-DB_PASSWORD=root
+DB_PASSWORD=
 ```
 ### smtp config :
 ```
@@ -30,7 +30,7 @@ MAIL_ENCRYPTION=tls
 ## 4. migrate table to database :
 run this command on ```terminal``` or ```cmd``` if you use windows OS.
 
-```bash 
+```bash
 php artisan migrate
 ```
 ## 5. insert data to table :
@@ -38,7 +38,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## 6. run 
+## 6. run
 ```bash
 composer dump-autoload -o
 php artisan storage:link
