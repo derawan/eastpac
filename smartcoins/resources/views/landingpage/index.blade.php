@@ -180,7 +180,7 @@
                                         LandingPageContent::getJsonData('banner_2', 'banner_2', 'txt')
                                     !!}</h3>
                                 @endrole
-<!--    <h3>900,000 TAKENS ALREADY SOLD OUT</h3>-->
+    <h3>900,000 TAKENS ALREADY SOLD OUT</h3>
 	<div class="gaps size-1x d-none d-md-block"></div>
 	<p class="lead animated" data-animate="fadeInUp" data-delay="1.35"><span class="info ">next offer will start again at 21:30 (+8 GMT)</span> </p>
 	<div class="gaps size-1x d-none d-md-block"></div>

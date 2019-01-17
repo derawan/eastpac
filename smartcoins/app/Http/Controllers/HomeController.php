@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\SiteConfig;
+use App\Kyc;
 use App\User;
 use Auth;
 
@@ -52,8 +53,9 @@ class HomeController extends Controller
         //auth()->user()->givePermissionTo('Manage My Profile');
         //auth()->user()->assignRole('Administrator');
         $title = "Dashboard";
+        $get_eth_price = json_decode(getEthPrice('https://sandbox-api.coinmarketcap.com'));
 
-        return view('layouts.sections.home', compact('title'));
+        return view('layouts.sections.home', compact('title', 'get_eth_price'));
     }
 
     public function contribution()
@@ -85,7 +87,12 @@ class HomeController extends Controller
     public function kycapp()
     {
         $title = "KYC App";
-        return view('layouts.sections.kycapp', compact('title'));
+        $kycStatus = 0;        
+        $getData = Kyc::where('user_id', Auth::user()->id);
+        if ($getData->count() > 0) {
+            $kycStatus = $getData->first()->status;
+        }
+        return view('layouts.sections.kycapp', compact('title', 'kycStatus'));
     }
 
     public function dshareIndex()

@@ -13,14 +13,6 @@
     </a>
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav east-post">
-              <li class="dropdown user user-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{asset('dist/img/eth.png')}}" class="user-image" alt="User Image">
-                    <span>0.00 ETH</span>
-                  </a>
-              </li>
-        </ul>
         <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

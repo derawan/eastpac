@@ -157,10 +157,10 @@
                               <div class="col-md-4">
                                   <label>Token To Purchase</label>
                                 <div class="input-group input-group-lg">
-                                    <input type="text" class="form-control" style="border:1px solid #f39c12" id="est">
+                                    <input type="text" class="form-control" style="border:1px solid #f39c12" >
                                     <div class="input-group-btn">
                                       <button class="btn btn-warning" type="submit">
-                                        EST
+                                        EAST
                                       </button>
                                     </div>
                                   </div>
@@ -169,7 +169,7 @@
                                <div class="col-md-4">
                                 <label>Payment Amount</label>
                                 <div class="input-group input-group-lg">
-                                  <input type="text" class="form-control" style="border:1px solid #f39c12" id="eth">
+                                  <input type="text" class="form-control" style="border:1px solid #f39c12">
                                   <span class="input-group-btn">
                                     <button type="button" class="btn btn-warning btn-flat">ETH</button>
                                   </span>
@@ -191,7 +191,7 @@
                                         <div class="payment-summary-item payment-summary-final">
                                             <h6 class="payment-summary-title">Final Payment</h6>
                                             <div class="payment-summary-info">
-                                                <span class="payment-summary-amount" id="finaleth">0.00</span> <span>eth</span>
+                                                <span class="payment-summary-amount">600.00</span> <span>eth</span>
                                             </div>
                                         </div>
                                     </div><!-- .col -->
@@ -199,7 +199,7 @@
                                         <div class="payment-summary-item payment-summary-bonus">
                                             <h6 class="payment-summary-title">Received Bonus</h6>
                                             <div class="payment-summary-info">
-                                                <span>+</span> <span class="payment-summary-amount" id="estbonus">0.00</span> <span>est</span>
+                                                <span>+</span> <span class="payment-summary-amount">600.00</span> <span>east</span>
                                             </div>
                                         </div>
                                     </div><!-- .col -->
@@ -207,7 +207,7 @@
                                         <div class="payment-summary-item payment-summary-tokens">
                                             <h6 class="payment-summary-title">Tokens Received</h6>
                                             <div class="payment-summary-info">
-                                                <span class="payment-summary-amount" id="totaltoken">0</span> <span>est</span>
+                                                <span class="payment-summary-amount">12,200</span> <span>east</span>
                                             </div>
                                         </div>
                                     </div><!-- .col -->
@@ -457,33 +457,5 @@
     
     var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
     initializeClock('clockdiv', deadline);
-    
-    /*calculation*/
-    function bonusEst(val1){
-        var calBonus = ((val1 * 1) * 20) / 100;
-        return calBonus;
-    }
-    
-    $(document).ready(function(){
-       $('#est').keyup(function(){
-           var resultEst = ($('#est').val() * 1) / 100;
-           var bnsEst = bonusEst($(this).val());
-           var resultTok = ($(this).val() * 1) + bnsEst;
-           $('#eth').val(resultEst);
-           $('#finaleth').text(resultEst);
-           $('#estbonus').text(bnsEst);
-           $('#totaltoken').text(parseFloat(resultTok).toFixed(2));
-       });
-        
-       $('#eth').keyup(function(){
-           var resultEth = ($('#eth').val() * 1) * 100;
-           $('#est').val(resultEth);
-           $('#finaleth').text($(this).val());
-           var bnsEst = bonusEst($('#est').val());
-           $('#estbonus').text(bnsEst);
-           var resultTok = ($('#est').val() * 1) + bnsEst;
-           $('#totaltoken').text(parseFloat(resultTok).toFixed(2));
-       })
-    });
     </script>
 @endsection

@@ -92,7 +92,8 @@
                     <div class="tile-item tile-primary">
                         <div class="tile-bubbles"></div>
                         <h1 class="tile-title">1 ETH = 1000 EAST</h1>
-                        <h6 class="tile-info">1 ETH = 156.89 USD</h6>
+                        {{-- <h6 class="tile-info">1 ETH = 156.89 USD</h6> --}}
+                        <h6 class="tile-info">1 ETH = {{$get_eth_price->data->quote->USD->price}} USD</h6>
                     </div>
                 </div><!-- end exchange -->
             </div>
@@ -124,14 +125,14 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-9 col-xs-8">
                                 <div class="input-group input-group-md">
-                                    <input type="text" class="form-control" style="border:1px solid #f39c12" id="txtEth">
+                                    <input type="text" class="form-control" style="border:1px solid #f39c12">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-warning btn-flat">ETH</button>
                                     </span>
                                 </div>
                                 </div>
-                            <div class="col-md-1 col-sm-1 col-xs-1" style="margin-top:10px"><i class="fa fa-exchange"></i></div>       
-                            <div class="col-md-4 col-sm-2 col-xs-2" style="margin-top:10px"><p id="resultEst"><b>0 EAST</b></p></div>
+                            <div class="col-md-1 col-sm-1 col-xs-1" style="margin-top:10px"><i class="fa fa-exchange"></i></div>
+                            <div class="col-md-4 col-sm-2 col-xs-2" style="margin-top:10px"><p><b>100 EAST</b></p></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -142,139 +143,131 @@
                                 <div class="col-md-12"><button class="btn btn-sm btn-warning pull-right">Buy Token</button></div>
                             </div>
                         </div>
-                    </div>     
+                    </div>
                 </div>
             </div>
             <div class="row">
-				<div class="col-xl-12 col-md-8 col-lg-8"><!--start token sale graph-->	
-                    <div class="gaps-3x">
-                        <table class="table table-bordered" class="display" style="width:100%">
-                            <tbody>
-                                <tr>
-                                    <th>Presale</th>
-                                    <th>Sale Stage 1</th>
-                                    <th>Sale Stage 2</th>
-                                </tr>
-
-                                <tr>
-                                    <td>03 January 2019</td>
-                                    <td>10 March 2019</td>
-                                    <td>15 June 2019</td>
-                                </tr>
-                                <tr>
-                                    <td>15 June 2019</td>
-                                    <td>05 September 2019</td>
-                                    <td>20 December 2019</td>
-                                </tr>
-                                <tr>
-                                    <td>20 December 2019</td>
-                                    <td>16 February 2020</td>
-                                    <td>19 May 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>19 May 2020</td>
-                                    <td>15 August 2020</td>
-                                    <td>01 November 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>01 November 2020</td>
-                                    <td>15 February 2021</td>
-                                    <td>20 July 2021</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="box-footer clearfix">
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                <li><a href="#">«</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
+                <div class="col-xl-12 col-md-8 col-lg-8"><!--start token sale graph-->
+                    <div class="token-sale-graph card card-full-height">
+                        <div class="card-innr">
+                            <div class="chart-tokensale"><canvas id="lineChart" height="128px"></canvas></div>
                         </div>
-                    </div>   
-                                
-                    <div style="clear:both;"></div>
-							<!-- .card -->
+                    </div><!-- .card -->
                 </div><!--end token sale graph-->
-				<!--start token sale progress-->
-				<div class="col-xl-12 col-md-4 col-lg-4">
-								<div class="box box-solid box-warning">
-									<div class="box-header with-border">
-										<div class="box-title"><h3>Token Sales Progress</h3></div>
-									</div>
-									<div class="box-body">
-										<ul class="progress-info">
-											<li><span>Raised</span> 2,758 EST</li>
-											<li class="text-right"><span>TOTAL</span> 1,500,000 EST</li>
-										</ul>
-										<div class="progress-bar" style="width: 100%">
-											<div class="progress-hcap" data-percent="83" style="width: 83%;"><div>Hard cap <span>1,400,000</span></div></div>
-											<div class="progress-scap" data-percent="24" style="width: 24%;"><div>Soft cap <span>40,000</span></div></div>
-											<div class="progress-percent" data-percent="28" style="width: 28%;"></div>
-										</div>
-										<div style="clear: both"></div>
-										<!--start countdown timer-->
-										<div class="token-countdown" style="padding-bottom: 10px; margin-top: 10px;">
-												<span class="token-countdown-title">SALE END IN</span>
-												<div id="clockdiv">
-													<table>
-														<tr>
-															<td>
-																<div>
-																	<span class="days"></span>
-																	<div class="smalltext">Days</div>
-																</div>
-															</td>
-															<td>
-																 <div>
-																	<span class="hours"></span>
-																	<div class="smalltext">Hours</div>
-																 </div>
-                              			
-															</td>
-															<td>
-																<div>
-																	<span class="minutes"></span>
-																	<div class="smalltext">Minutes</div>
-																</div>
-															</td>
-															<td>
-																<div>
-																	<span class="seconds"></span>
-																	<div class="smalltext">Seconds</div>
-																</div>
-															</td>
-														</tr>
-													</table>
-												</div>
-										</div> 
-									</div>
-								</div>     
-							</div><!--end token sale progress-->
-							<div class="col-xl-12 col-md-12 col-lg-12">
-								<div id="chartdiv" style="width:100%;height:400px;"></div>
-							</div>							
-                            <div class="col-xl-12 col-md-12 col-lg-12">
-								<div id="chartdiv2" style="width:100%;height:400px;"></div>
-							</div>
-						</div>
-            
-        </div>                
+                <!--start token sale progress-->
+                <div class="col-xl-12 col-md-4 col-lg-4">
+                    <div class="box box-solid box-warning">
+                        <div class="box-header with-border">
+                            <div class="box-title"><h3>Token Sales Progress</h3></div>
+                        </div>
+                        <div class="box-body">
+                            <ul class="progress-info">
+                                <li><span>Raised</span> 2,758 TWZ</li>
+                                <li class="text-right"><span>TOTAL</span> 1,500,000 TWZ</li>
+                            </ul>
+                            <div class="progress-bar" style="width: 100%">
+                                <div class="progress-hcap" data-percent="83" style="width: 83%;"><div>Hard cap <span>1,400,000</span></div></div>
+                                <div class="progress-scap" data-percent="24" style="width: 24%;"><div>Soft cap <span>40,000</span></div></div>
+                                <div class="progress-percent" data-percent="28" style="width: 28%;"></div>
+                            </div>
+                            <div style="clear: both"></div>
+                            <!--start countdown timer-->
+                            <div class="token-countdown" style="padding-bottom: 10px; margin-top: 10px;">
+                                    <span class="token-countdown-title">SALE END IN</span>
+                                    <div id="clockdiv">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <span class="days"></span>
+                                                        <div class="smalltext">Days</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                        <div>
+                                                        <span class="hours"></span>
+                                                        <div class="smalltext">Hours</div>
+                                                        </div>
+
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="minutes"></span>
+                                                        <div class="smalltext">Minutes</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <span class="seconds"></span>
+                                                        <div class="smalltext">Seconds</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end token sale progress-->
+            </div>
+            <hr>
+            <div class="gaps-3x">
+                <table class="table table-bordered" class="display" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <th>Presale</th>
+                            <th>Sale Stage 1</th>
+                            <th>Sale Stage 2</th>
+                        </tr>
+
+                        <tr>
+                            <td>03 January 2019</td>
+                            <td>10 March 2019</td>
+                            <td>15 June 2019</td>
+                        </tr>
+
+                        <tr>
+                            <td>15 June 2019</td>
+                            <td>05 September 2019</td>
+                            <td>20 December 2019</td>
+                        </tr>
+
+                        <tr>
+                            <td>20 December 2019</td>
+                            <td>16 February 2020</td>
+                            <td>19 May 2020</td>
+                        </tr>
+
+                        <tr>
+                            <td>19 May 2020</td>
+                            <td>15 August 2020</td>
+                            <td>01 November 2020</td>
+                        </tr>
+
+                        <tr>
+                            <td>01 November 2020</td>
+                            <td>15 February 2021</td>
+                            <td>20 July 2021</td>
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 @endsection
 
 @section('script')
-<!-- amchartjs -->
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="https://www.amcharts.com/lib/3/serial.js"></script>
-<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>         
-<script src="//www.amcharts.com/lib/3/amstock.js"></script>
-	<!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="{{asset('dist/js/js-candlestick.js')}}"></script>
-<script src="{{asset('dist/js/js-linechart.js')}}"></script>
-<!--end amchartjs-->
-
 <script>
     //countdown timer
     function getTimeRemaining(endtime) {
@@ -362,12 +355,5 @@ $(document).ready(function() {
         responsive: true
     }
     });
-</script>
-<script>
-        
-    $('#txtEth').keyup(function(){
-        var valEth = ($(this).val() * 1) * 100;
-        document.getElementById('resultEst').innerHTML = '<b>' + valEth + ' EAST</b>';
-    })
 </script>
 @endsection

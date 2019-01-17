@@ -30,13 +30,12 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="{{ (Route::currentRouteName() == "home") ? 'active' : '' }}"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="{{ (Route::currentRouteName() == "home.kycapp") ? 'active' : '' }}"><a href="{{route('home.kycapp')}}"><i class="fa fa-copy"></i> <span>KYC Application</span></a></li>
-            <li class="{{ (Route::currentRouteName() == "home.contribution") ? 'active' : '' }}"><a href="{{ route('home.contribution') }}"><i class="fa fa-external-link"></i> <span>Buy Token</span></a></li>
-            <li class="{{ (Route::currentRouteName() == "home.dshare") ? 'active' : '' }}"><a href="{{route('home.dshare')}}"><i class="fa fa fa-file"></i> <span>D-Share</span></a></li> 
+            <li class="{{ (Route::currentRouteName() == "home.contribution") ? 'active' : '' }}"><a href="{{ route('home.contribution') }}"><i class="fa fa-external-link"></i> <span>Contribution</span></a></li>
             <li class="{{ (Route::currentRouteName() == "home.transaction") ? 'active' : '' }}"><a href="{{ route('home.transaction') }}"><i class="fa fa-random"></i> <span>Transaction</span></a></li>
             <li class="{{ (Route::currentRouteName() == "home.referral") ? 'active' : '' }}"><a href="{{route('home.referral')}}"><i class="fa fa-refresh"></i> <span>Referral</span></a></li>
             <li class="{{ (Route::currentRouteName() == "profileIndex") ? 'active' : '' }}"><a href="{{ route('profileIndex') }}"><i class="fa fa-user"></i> <span>Account</span></a></li>
             <li class="{{ (Route::currentRouteName() == "home.security") ? 'active' : '' }}"><a href="{{route('home.security')}}"><i class="fa fa-lock"></i> <span>Security</span></a></li>
-                      
+            <li class="{{ (Route::currentRouteName() == "home.dshare") ? 'active' : '' }}"><a href="{{route('home.dshare')}}"><i class="fa fa fa-file"></i> <span>D-Share</span></a></li>            
             @foreach(MenuController::loadMenu()->where('level', 1)->get() as $menu)
                 @if(MenuController::loadMenu()->where('parent', $menu->id)->count() > 0)
                     @if(is_null($menu->role))
@@ -103,6 +102,7 @@
                         
                 </ul>
             </li>
+            <li class="{{ (Route::currentRouteName() == "kyc.index") ? 'active' : '' }}"><a href="{{route('kyc.index')}}"><i class="fa fa-check-circle"></i> <span>KYC Verification</span></a></li>
             <li class="{{ (Route::currentRouteName() == "admin.config.index") ? 'active' : '' }}"><a href="{{route('admin.config.index')}}"><i class="fa fa-gears"></i> <span>Site Config</span></a></li>
             @endrole
         </ul>
